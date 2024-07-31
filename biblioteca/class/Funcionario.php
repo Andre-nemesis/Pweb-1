@@ -4,11 +4,14 @@ namespace Biblioteca\Class;
 
 use Biblioteca\Class\Pessoa;
 use Biblioteca\Class\Livro;
+use Biblioteca\Class\OperacoesUsuario;
 use Exception;
 
-class Funcionario extends Pessoa{
+class Funcionario extends Pessoa implements OperacoesUsuario{
     private int $idFuncionario;
     private string $cargo;
+
+    private string $senha;
 
     public function __construct(string $nome, string $cpf,int $idFuncionario,string $cargo){
         parent::__construct($nome, $cpf);
@@ -21,6 +24,10 @@ class Funcionario extends Pessoa{
 
     public function getCodigoFuncionario(): string{
         return $this->cargo;
+    }
+
+    public function getSenha():string{
+        return $this->senha ?? "";
     }
 
     public function cadastrarLivro(Livro $livro):bool{
@@ -45,6 +52,14 @@ class Funcionario extends Pessoa{
             echo $e->getMessage();
             return false;
         }
+    }
+
+    public function login():bool{
+        return true; // será implementado posteriormente
+    }
+
+    public function logout(): bool{
+        return false; // será implementado posteriorment
     }
 
 }
