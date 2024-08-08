@@ -1,7 +1,5 @@
 <?php
 
-namespace Biblioteca\Class;
-
 class Pessoa {
     private string $nome;
     private string $cpf;

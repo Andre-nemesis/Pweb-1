@@ -1,18 +1,12 @@
 <?php
 
-namespace Biblioteca\Lib;
-
-use Biblioteca\Class\Livro;
-use Biblioteca\Class\Usuario;
-use Exception;
+include_once 'Livro.php';
 
 class Biblioteca{
     private array $livros;
     private array $usuarios;
 
-    public function __construct(array $livros, array $usuarios){
-        $this->livros = $livros;
-        $this->usuarios = $usuarios;
+    public function __construct(){
     }
 
     public function addLivro(Livro $livro):void{
@@ -79,5 +73,8 @@ class Biblioteca{
         }
     }
     
+    public function getLivros(){
+        return $this->livros;
+    }
 }   
 ?>

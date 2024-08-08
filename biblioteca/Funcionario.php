@@ -1,10 +1,8 @@
 <?php
 
-namespace Biblioteca\Class;
-
-use Biblioteca\Class\Pessoa;
-use Biblioteca\Class\Livro;
-use Biblioteca\Class\OperacoesUsuario;
+require_once 'Pessoa.php';
+require_once 'InterfaceUsuario.php';
+require_once 'Livro.php';
 use Exception;
 
 class Funcionario extends Pessoa implements OperacoesUsuario{
@@ -13,11 +11,13 @@ class Funcionario extends Pessoa implements OperacoesUsuario{
 
     private string $senha;
 
-    public function __construct(string $nome, string $cpf,int $idFuncionario,string $cargo){
+    public function __construct(string $nome, string $cpf,int $idFuncionario,string $cargo,string $senha){
         parent::__construct($nome, $cpf);
         $this->idFuncionario = $idFuncionario;
         $this->cargo = $cargo;
+        $this->senha = $senha;
     }
+    
     public function getIdFuncionario(): int{
         return $this->idFuncionario;
     }
@@ -28,6 +28,10 @@ class Funcionario extends Pessoa implements OperacoesUsuario{
 
     public function getSenha():string{
         return $this->senha ?? "";
+    }
+
+    public function getCargo():string{
+        return $this->cargo;
     }
 
     public function cadastrarLivro(Livro $livro):bool{

@@ -1,11 +1,8 @@
 <?php
 
-namespace Biblioteca\Class;
-
-use Biblioteca\Class\Pessoa;
-use Biblioteca\Class\OperacoesUsuario;
-use Exception;
-use Biblioteca\Class\Livro;
+require_once 'Pessoa.php';
+require_once 'InterfaceUsuario.php';
+require_once 'Livro.php';
 
 class Usuario extends Pessoa implements OperacoesUsuario{
     private int $idUsuario;
