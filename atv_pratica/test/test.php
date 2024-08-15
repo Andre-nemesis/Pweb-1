@@ -1,6 +1,10 @@
 <?php 
-require_once './atv_pratica/Autor.php';
+namespace test;
 
-$autor = new Autor(0,'Maria','BR');
-$autor->cadastrar();
+require_once './atv_pratica/Repository/AutorRespository.php';
+use Repository\AutorRepository;
+
+$ee = new AutorRepository();
+$ee->cadastrarAutor('mumia','AG');
+echo $ee->getAutorId('mumia');
 ?>

@@ -1,10 +1,9 @@
 <?php
 
 namespace Model;
-use Exception;
-use DBConectionHandler;
 
-require_once './atv_pratica/db/DBConnectionHandler.php';
+use Exception;
+
 
 class Autor{
     private int $idAutor;
@@ -13,10 +12,11 @@ class Autor{
 
     private string $nacionalidade;
 
-    public function __construct(string $nome, string $nacionalidade){
+    public function __construct(int $id, string $nome, string $nacionalidade){
         try{
-            if (is_string($nome) and is_string($nacionalidade)){
+            if (is_string($nome) and is_string($nacionalidade) and is_numeric($id)){
                 $this->nome = $nome;
+                $this->idAutor = $id;
                 $this->nacionalidade = $nacionalidade;
             }
             else{
@@ -37,12 +37,20 @@ class Autor{
         return $this->nome;
     }
 
-    public function getNascionalidade(): string{
+    public function getNacionalidade(): string{
         return $this->nacionalidade;
     }
 
     public function setId(int $id){
         $this->idAutor=$id;
+    }
+
+    public function setNacionalidade($nacionalidade) {
+        return $this->nacionalidade = $nacionalidade;
+    }
+
+    public function setNome($nome) {
+        return $this->nome = $nome;
     }
 
     
