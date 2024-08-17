@@ -11,12 +11,13 @@ class Livro{
     private int $ano;
     private int $autor;
 
-    public function __construct(string $titulo , int $ano, int $autor){
+    public function __construct(string $titulo, int $ano, int $autor, bool $status = false){
         try{
             if (is_string($titulo) and is_integer($autor) and is_integer($ano)){
                 $this->titulo = $titulo;
                 $this->autor = $autor;
                 $this->ano = $ano;
+                $this->status = $status;
             }
             else{
                 throw new Exception("The parameter of the function are not valid.");

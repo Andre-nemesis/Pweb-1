@@ -15,7 +15,9 @@ class LivroRepository{
     private DBConectionHandler $connection_handle;
     private $conn;
 
-    public function __construct(){
+    public function __construct(){}
+
+    public function openConnection(){
         $this->connection_handle = new DBConectionHandler();
         $this->conn = $this->connection_handle->getConnection();
     }
@@ -110,6 +112,34 @@ class LivroRepository{
         finally{
             $this->connection_handle->closeConnection();
         }
+    }
+
+    public function findById(int $id) {
+        $this->openConnection();
+        
+        $sql = "SELECT titulo, ano, status, fk_autor FROM livro WHERE id=?";
+        $stmt = $this->conn->prepare($sql);
+        if ($stmt === false) {
+            die('Erro na preparação da consulta: ' . $this->conn->error);
+        }
+
+        $titulo = '';
+        $ano = '';
+        $status = false;
+        $fk_autor = 'null';
+
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->bind_result($titulo, $ano, $status, $fk_autor);
+
+        if ($stmt->fetch()) {
+            $stmt->close();
+            $livro = new Livro($titulo, $ano, $fk_autor, $status);
+            return $livro;
+        }
+
+        $stmt->close();
+        return null;
     }
 }
 ?>
