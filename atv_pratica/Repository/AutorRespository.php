@@ -51,8 +51,9 @@ class AutorRepository{
             $result = $this->conn->query($query);
             $autores = [];
             if ($result->num_rows > 0){
-                while ($row = $result->fetch_assoc())
-                $autores[] = new Autor($row['id'], $row['name'], $row['nascionalidade']);
+                while ($row = $result->fetch_assoc()){
+                    $autores[] = new Autor($row['id'], $row['name'], $row['nascionalidade']);
+                }
                 $result->free();
                 return $autores;
             }
@@ -61,14 +62,16 @@ class AutorRepository{
             echo $e->getMessage();
         }
         finally{
-            $this->conn->close();
+            if (mysqli_ping($this->conn)){
+                $this->conn->close();
+            }
         }
     }
 
     // ajeitar aqui
     public function getAutorId(string $nome_autor){
         $this->openConnection();
-        $query = "CALL getAutor_id(?);";
+        $query = "SELECT getAutor_id(?) AS 'id';";
         try{
             $stmt = $this->conn->prepare($query);
             $stmt->bind_param("s", $nome_autor);
@@ -87,7 +90,9 @@ class AutorRepository{
             echo $e->getMessage();
         }
         finally{
-            $this->conn->close();
+            if (mysqli_ping($this->conn)){
+                $this->conn->close();
+            }
         }
         
     }
@@ -97,7 +102,7 @@ class AutorRepository{
         $this->openConnection();
         $query = 'CALL dell_autor(?)';
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('d',$id_autor);
+        $stmt->bind_param('s',$id_autor);
         try{
             $stmt->execute();
             $stmt->close();
@@ -116,25 +121,36 @@ class AutorRepository{
     public function findById(int $id) {
         $this->openConnection();
         
-        $sql = "SELECT id, nome, nacionalidade FROM autor WHERE id=?";
+        $sql = "SELECT id, nome_autor, nacionalidade FROM autor WHERE id=?";
         $stmt = $this->conn->prepare($sql);
-        if ($stmt === false) {
-            die('Erro na preparação da consulta: ' . $this->conn->error);
-        }
-        $nome= '';
-        $nacionalidade = '';
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $stmt->bind_result($id, $nome, $nacionalidade);
-
-        if ($stmt->fetch()) {
+        try{
+            if ($stmt === false) {
+                die('Erro na preparação da consulta: ' . $this->conn->error);
+            }
+            $nome= '';
+            $nacionalidade = '';
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $stmt->bind_result($id, $nome, $nacionalidade);
+    
+            if ($stmt->fetch()) {
+                $stmt->close();
+                $autor =  new Autor($id, $nome, $nacionalidade);
+                return $autor;
+            }
+    
             $stmt->close();
-            $autor =  new Autor($id, $nome, $nacionalidade);
-            return $autor;
+            return null;
         }
-
-        $stmt->close();
-        return null;
+        catch (Exception $e){
+            echo $e->getMessage();
+        }
+        finally{
+            if (mysqli_ping($this->conn)){
+                $this->conn->close();
+            }
+        }
+        
     }
 
     public function editarAutor(Autor $autor){
@@ -142,7 +158,7 @@ class AutorRepository{
         $nacionalidade = $autor->getNacionalidade();
         $autor_id = $this->getAutorId($autor->getNome());
         $this->openConnection();
-        $query = 'UPDATE autor SET autor.name = ?, autor.nascionalidade = ? WHERE autor.id = ?';
+        $query = 'UPDATE autor SET autor.nome_autor = ?, autor.nacionalidade = ? WHERE autor.id = ?';
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('ssi',$nome,$nacionalidade,$autor_id);
         

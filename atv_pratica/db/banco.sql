@@ -39,7 +39,7 @@ DELIMITER $$
 
 CREATE PROCEDURE insert_autor(in name_in varchar(80),in nacionalidade_in varchar(4))
 BEGIN
-    INSERT INTO autor (name,nacionalidade) values (name_in,nacionalidade_in);
+    INSERT INTO autor (nome_autor,nacionalidade) values (name_in,nacionalidade_in);
 END $$
 
 DELIMITER ;
@@ -58,7 +58,7 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_estudante(nome_in VARCHAR(80))
 BEGIN
-	INSERT INTO estudante (name) VALUES (nome_in);
+	INSERT INTO estudante (nome_estudante) VALUES (nome_in);
 END $$
 DELIMITER ;
 
@@ -125,7 +125,7 @@ RETURNS INT
 DETERMINISTIC
 BEGIN
 	DECLARE id_autor INT;
-	SELECT id INTO id_autor FROM autor WHERE name = autor_name;
+	SELECT id INTO id_autor FROM autor WHERE nome_autor = autor_name;
     IF id_autor IS NULL THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Autor não encontrado';
 	END IF;
@@ -140,7 +140,7 @@ RETURNS INT
 DETERMINISTIC
 BEGIN
     DECLARE id_estudante INT;
-    SELECT id INTO id_estudante FROM livro WHERE nome_estudante = nome_in;
+    SELECT id INTO id_estudante FROM estudante WHERE nome_estudante = nome_in;
     IF id_estudante IS NULL THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Livro não encontrado';
     END IF;
@@ -178,8 +178,14 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE devolver_livro (id_livro INT,data_fim_in DATE)
 BEGIN
-	UPDATE emprestimo SET data_fim = data_fim_in WHERE fk_id_livro = id_livro;
-    UPDATE livro SET status = true WHERE id = id_livro;
+	DECLARE data_emprestimo DATE;
+    SELECT em.data_inicio INTO data_emprestimo FROM emprestimo AS em WHERE em.fk_id_livro = id_livro;
+    IF data_fim_in < data_emprestimo THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'A data de devolução não pode ser anterior a data de empréstimo';
+	ELSE
+		UPDATE emprestimo SET data_fim = data_fim_in WHERE fk_id_livro = id_livro;
+		UPDATE livro SET status = true WHERE id = id_livro;
+	END IF;
 END $$
 DELIMITER ;
 
