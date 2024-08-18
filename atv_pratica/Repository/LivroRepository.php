@@ -96,12 +96,12 @@ class LivroRepository{
     }
 
     public function editarLivro(string $titulo, int $ano, $nome_autor){
-        $autor_repository = new AutorRepository();
-        $id_autor = $autor_repository->getAutorId($nome_autor);
+        $livro_repository = new LivroRepository();
+        $id_livro = $livro_repository->getLivroId($nome_autor);
         $livro_id = $this->getLivroId($titulo);
         $query = 'UPDATE livro SET livro.titulo = ? livro.ano = ? livro.fk_autor = ? WHERE livro.id = ?';
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('siii',$titulo,$ano,$id_autor,$livro_id);
+        $stmt->bind_param('siii', $titulo, $ano, $id_autor, $livro_id);
         
         try{
             $stmt->execute();
