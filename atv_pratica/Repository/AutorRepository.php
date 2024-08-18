@@ -68,7 +68,7 @@ class AutorRepository{
     // ajeitar aqui
     public function getAutorId(string $nome_autor){
         $this->openConnection();
-        $query = "CALL getAutor_id(?);";
+        $query = "SELECT getAutor_id('livro teste') as 'id'";
         try{
             $stmt = $this->conn->prepare($query);
             $stmt->bind_param("s", $nome_autor);
