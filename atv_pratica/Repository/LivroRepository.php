@@ -23,7 +23,7 @@ class LivroRepository{
     }
 
     public function cadastrarLivro(string $titulo, int $ano, int $id_autor){
-        $this->livro = new Livro(0,$titulo,$ano,$id_autor);
+        $this->livro = new Livro($titulo,$ano,$id_autor);
         $this->openConnection();
         try{
             $stmt = $this->conn->prepare("CALL insert_livro(?, ?, ?)");
@@ -52,9 +52,9 @@ class LivroRepository{
             $result = $this->conn->query($query);
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
-                    $livros[] = new Livro($row['id'],$row['titulo'],
+                    $livros[] = new Livro($row['titulo'],
                                         $row['ano'],$row['fk_autor'],
-                                        $row['status']);
+                                        $row['status'],$row['id']);
                 }
                 $result->free();
                 return $livros;
@@ -65,9 +65,7 @@ class LivroRepository{
             echo $e->getMessage();
         }
         finally{
-            if (mysqli_ping($this->conn)){
-                $this->conn->close();
-            }
+            $this->conn->close();
         }
     }
 
@@ -97,9 +95,8 @@ class LivroRepository{
         }
     }
 
-    public function deletarLivro(string $titulo_livro){
+    public function deletarLivro(int $id_livro){
         $this->openConnection();
-        $id_livro = $this->getLivroId($titulo_livro);
         $query = 'CALL dell_livro(?)';
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('i',$id_livro);
@@ -117,25 +114,26 @@ class LivroRepository{
         
     }
 
-    public function editarLivro(string $titulo, int $ano, $nome_autor){
+    public function editarLivro(Livro $livro){
+        
+        $titulo = $livro->getTitulo();
+        $id_autor = $livro->getAutor();
+        $ano = $livro->getAno();
+        $livro_id = $this->getLivroId($livro->getTitulo());
         $this->openConnection();
-        $autor_repository = new AutorRepository();
-        $id_autor = $autor_repository->getAutorId($nome_autor);
-        $livro_id = $this->getLivroId($titulo);
         $query = 'UPDATE livro SET livro.titulo = ? livro.ano = ? livro.fk_autor = ? WHERE livro.id = ?';
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('siii',$titulo,$ano,$id_autor,$livro_id);
         
         try{
             $stmt->execute();
+            $stmt->close();
         }
         catch (Exception $e){
             echo $e->getMessage();
         }
         finally{
-            if (mysqli_ping($this->conn)){
-                $this->conn->close();
-            }
+            $this->conn->close();
         }
     }
 
@@ -159,7 +157,7 @@ class LivroRepository{
 
         if ($stmt->fetch()) {
             $stmt->close();
-            $livro = new Livro($titulo, $ano, $fk_autor, $status);
+            $livro = new Livro($titulo, $ano, $fk_autor, $status,$id);
             return $livro;
         }
 

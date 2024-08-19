@@ -52,7 +52,7 @@ class AutorRepository{
             $autores = [];
             if ($result->num_rows > 0){
                 while ($row = $result->fetch_assoc()){
-                    $autores[] = new Autor($row['id'], $row['name'], $row['nascionalidade']);
+                    $autores[] = new Autor($row['id'], $row['nome_autor'], $row['nacionalidade']);
                 }
                 $result->free();
                 return $autores;
@@ -62,9 +62,7 @@ class AutorRepository{
             echo $e->getMessage();
         }
         finally{
-            if (mysqli_ping($this->conn)){
-                $this->conn->close();
-            }
+            $this->conn->close();
         }
     }
 
@@ -97,12 +95,11 @@ class AutorRepository{
         
     }
 
-    public function deletarAutor(string $nome){
-        $id_autor = $this->getAutorId($nome);
+    public function deletarAutor(int $id_autor){
         $this->openConnection();
         $query = 'CALL dell_autor(?)';
         $stmt = $this->conn->prepare($query);
-        $stmt->bind_param('s',$id_autor);
+        $stmt->bind_param('i',$id_autor);
         try{
             $stmt->execute();
             $stmt->close();
@@ -170,9 +167,7 @@ class AutorRepository{
             echo $e->getMessage();
         }
         finally{
-            if (mysqli_ping($this->conn)){
-                $this->conn->close();
-            }
+            $this->conn->close();
         }
     }
 }

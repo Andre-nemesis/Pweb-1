@@ -7,9 +7,9 @@
 </head>
 <body>
     <h1>Menu Principal</h1>
-    <a href="cadastrarAutor.php">Cadastrar Novo Autor</a><br>
-    <a href="cadastrarAutor.php">Editar Autor</a><br>
-    <a href="cadastrarAutor.php">Excluir Autor</a><br>
-    <a href="listarAutores.php">Listar Autores</a>
+    <a href="gerenciarAutores.php">Gerenciar Autores</a><br>
+    <a href="gerenciarEstudantes.php">Gerenciar Estudantes</a><br>
+    <a href="gerenciarLivros.php">Gerenciar Livros</a><br>
+    <a href="gerenciarBiblioteca.php">Gerenciar Biblioteca</a>
 </body>
 </html>

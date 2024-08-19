@@ -3,11 +3,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once '../Controller/AutorController.php';
-use Controller\AutorController;
+include_once '../Controller/BibliotecaController.php';
+use Controller\BibliotecaController;
 
-$controller = new AutorController();
-$autores = $controller->ListarAutores();
+$controller = new BibliotecaController();
+$relatorios = $controller->gerarRelatorio();
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@ $autores = $controller->ListarAutores();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Autores</title>
+    <title>Relatório de Emprestimo</title>
     <style>
         table {
             width: 100%;
@@ -47,39 +47,29 @@ $autores = $controller->ListarAutores();
             background-color: #c82333;
         }
     </style>
-    <script>
-        function confirmarExclusao(id) {
-            if (confirm("Tem certeza que deseja excluir este autor?")) {
-                window.location.href = 'excluirAutor.php?id=' + id;
-            }
-        }
-    </script>
 </head>
 <body>
-    <h1>Lista de Autores</h1>
+    <h1>Lista de Emprestimos</h1>
     <a href="index.php">Voltar para a página inicial</a>
     <table>
         <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Nacionalidade</th>
-            <th>Ações</th>
+            <th>Livro</th>
+            <th>Estudante</th>
+            <th>Data Emprestimo</th>
+            <th>Data Devolucao</th>
         </tr>
         <?php
-        if (!empty($autores)) {
-            foreach ($autores as $autor) {
+        if (!empty($relatorios)) {
+            foreach ($relatorios as $relatorio) {
                 echo "<tr>
-                    <td>" . $autor->getIdAutor() . "</td>
-                    <td>" . $autor->getNome() . "</td>
-                    <td>" . $autor->getNacionalidade() . "</td>
-                    <td>
-                        <a href='editarAutor.php?id=" . $autor->getIdAutor() . "'>Editar</a>
-                        <button onclick='confirmarExclusao(" . $autor->getIdAutor() . ")'>Excluir</button>
-                    </td>
+                    <td>" . $relatorio->getTituloLivro() . "</td>
+                    <td>" . $relatorio->getNomeEstudante() . "</td>
+                    <td>" . $relatorio->getDataEmprestimo() . "</td>
+                    <td>" . $relatorio->getDataDevolucao() . "</td>
                 </tr>";
             }
         } else {
-            echo "<tr><td colspan='4'>Nenhum autor encontrado</td></tr>";
+            echo "<tr><td colspan='4'>Nenhum registro encontrado</td></tr>";
         }
         ?>
     </table>

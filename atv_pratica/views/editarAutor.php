@@ -12,10 +12,7 @@ $controller = new AutorController();
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $autor = $controller->getAutorById($id);
-} else {
-    header('Location: listarAutores.php');
-    exit;
-}
+} 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
@@ -35,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <h1>Editar Autor</h1>
-    <a href="listar_autores.php">Voltar para a lista</a>
+    <a href="listarAutores.php">Voltar para a lista</a>
     <form action="editarAutor.php" method="post">
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($autor->getNome()); ?>" required>

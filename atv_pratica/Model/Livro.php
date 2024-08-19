@@ -3,8 +3,6 @@
 namespace Model;
 
 use Exception;
-use db\DBConectionHandler;
-require_once './atv_pratica/db/DBConnectionHandler.php';
 
 class Livro{
     private int $idLivro;
@@ -14,7 +12,7 @@ class Livro{
 
     private bool $status;
 
-    public function __construct(int $id_livro,string $titulo, int $ano, int $autor, bool $status = true){
+    public function __construct(string $titulo, int $ano, int $autor, bool $status = false,int $id_livro =0){
         try{
             if (is_string($titulo) and is_integer($autor) and is_integer($ano) and is_integer($id_livro) and is_bool($status)){
                 $this->titulo = $titulo;
@@ -33,6 +31,10 @@ class Livro{
         }
     }
 
+    public function getIdLivro(): int{
+        return $this->idLivro;
+    }
+
     public function getTitulo(): string{
         return $this->titulo;
     }
@@ -41,7 +43,7 @@ class Livro{
         return $this->ano;
     }
 
-    public function getAutor(): string{
+    public function getAutor(): int{
         return $this->autor;
     }
 

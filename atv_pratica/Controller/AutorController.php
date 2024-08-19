@@ -25,34 +25,54 @@ class AutorController {
             $this->mensagem = "autor cadastrado com sucesso!";
         }
         catch(Exception $e){
-            echo $e->getMessage();
+            $this->mensagem = $e->getMessage();
         }
         
     
     }
 
-    public function ExcluirAutor(string $nome){
+    public function ExcluirAutor(int $id){
+        try{
+            // Cria um novo objeto Autor Reposiotry
+            $this->autorRepository->deletarAutor($id);
 
-        // Cria um novo objeto Autor Reposiotry
-        $this->autorRepository->deletarAutor($nome);
-
-        // Mensagem de sucesso
-        $this->mensagem = "autor deletado com sucesso!";
+            // Mensagem de sucesso
+            $this->mensagem = "autor deletado com sucesso!";
+        }
+        catch(Exception $e){
+            // Mensagem de error
+            $this->mensagem = $e->getMessage();
+        }
+        
     }
 
     public function ListarAutores(){
-        // Cria um novo objeto Autor Reposiotry
-        return $this->autorRepository->listar_autores();
+        try{
+            // Cria um novo objeto Autor Reposiotry
+            return $this->autorRepository->listar_autores();
+        }
+
+        catch(Exception $e){
+            // Mensagem de error
+            $this->mensagem = $e->getMessage();
+        }
+        
     }
 
     public function EditarAutor(string $nome, string $nacionalidade){
-    
-        // Cria um novo objeto Autor Reposiotry
-        $autor = new Autor(0,$nome,$nacionalidade);
-        $this->autorRepository->editarAutor($autor);
-    
-        // Mensagem de sucesso
-        $this->mensagem = "autor editado com sucesso!";
+        try{
+            // Cria um novo objeto Autor Reposiotry
+            $autor = new Autor(0,$nome,$nacionalidade);
+            $this->autorRepository->editarAutor($autor);
+        
+            // Mensagem de sucesso
+            $this->mensagem = "autor editado com sucesso!";
+        }
+        catch(Exception $e){
+            // Mensagem de error
+            $this->mensagem = $e->getMessage();
+        }
+        
     }
 
     public function getMensage(){
@@ -60,7 +80,14 @@ class AutorController {
     }
 
     public function getAutorById(int $id){
-        return $this->autorRepository->findById($id);
+        try{
+            return $this->autorRepository->findById($id);
+        }
+        catch(Exception $e){
+            // Mensagem de error
+            $this->mensagem = $e->getMessage();
+        }
+        
     }
     
 }

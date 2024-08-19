@@ -1,14 +1,11 @@
 <?php 
 namespace Repository;
 
-require_once '../Model/Biblioteca.php';
 require_once '../db/DBConnectionHandler.php';
 require_once '../Repository/EstudanteRepository.php';
 require_once '../Repository/LivroRepository.php';
 require_once '../Model/Relatorio.php';
 
-use DateTime;
-use Model\Biblioteca;
 use db\DBConectionHandler;
 use Exception;
 use Repository\EstudanteRepository;
@@ -58,6 +55,7 @@ class BibliotecaRepository{
     }
 
     public function devolverLivro (string $titulo_livro, string $data_devolucao){
+        $this->openConnection();
         $id_livro = $this->livro_repo->getLivroId($titulo_livro);
         $query = 'CALL devolver_livro(?,?);';
         try{
@@ -73,7 +71,7 @@ class BibliotecaRepository{
             echo $e->getMessage();
         }
         finally{
-            if(mysqli_ping($this->conn)){
+            if (mysqli_ping($this->conn)){
                 $this->conn->close();
             }
         }
@@ -87,10 +85,19 @@ class BibliotecaRepository{
             $result = $this->conn->query($query);
             if ($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
-                    $relatorio[] = new Relatorio($row['nome_estudante'],
+                    if(is_null($row['data_fim'])){
+                        $relatorio[] = new Relatorio($row['nome_estudante'],
+                                                $row['titulo'],
+                                                $row['data_inicio'],
+                                                'sem data');
+                    }
+                    else{
+                        $relatorio[] = new Relatorio($row['nome_estudante'],
                                                 $row['titulo'],
                                                 $row['data_inicio'],
                                                 $row['data_fim']);
+                    }
+                    
             }
             $result->free();
             return $relatorio;
@@ -101,9 +108,7 @@ class BibliotecaRepository{
             echo $e->getMessage();
         }
         finally{
-            if(mysqli_ping($this->conn)){
-                $this->conn->close();
-            }
+            $this->conn->close();
         }   
     }
 }

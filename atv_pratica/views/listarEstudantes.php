@@ -3,11 +3,16 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once '../Controller/AutorController.php';
-use Controller\AutorController;
+include_once '../Controller/EstudanteController.php';
+use Controller\EstudanteController;
 
-$controller = new AutorController();
-$autores = $controller->ListarAutores();
+$controller = new EstudanteController();
+$estudantes = $controller->ListarEstudantes();
+echo is_null($estudantes);
+/*
+foreach ($estudantes as $estud){
+    echo $estud->getNome() . ' ' . $estud->getEstudanteId() .'<br>';
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +20,7 @@ $autores = $controller->ListarAutores();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Autores</title>
+    <title>Lista de Estudantes</title>
     <style>
         table {
             width: 100%;
@@ -49,37 +54,35 @@ $autores = $controller->ListarAutores();
     </style>
     <script>
         function confirmarExclusao(id) {
-            if (confirm("Tem certeza que deseja excluir este autor?")) {
-                window.location.href = 'excluirAutor.php?id=' + id;
+            if (confirm("Tem certeza que deseja excluir este estudante?")) {
+                window.location.href = 'excluirEstudante.php?id=' + id;
             }
         }
     </script>
 </head>
 <body>
-    <h1>Lista de Autores</h1>
+    <h1>Lista de Estudantes</h1>
     <a href="index.php">Voltar para a página inicial</a>
     <table>
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Nacionalidade</th>
             <th>Ações</th>
         </tr>
         <?php
-        if (!empty($autores)) {
-            foreach ($autores as $autor) {
+        if (!empty($estudantes)) {
+            foreach ($estudantes as $estudante) {
                 echo "<tr>
-                    <td>" . $autor->getIdAutor() . "</td>
-                    <td>" . $autor->getNome() . "</td>
-                    <td>" . $autor->getNacionalidade() . "</td>
+                    <td>" . $estudante->getEstudanteId() . "</td>
+                    <td>" . $estudante->getNome() . "</td>
                     <td>
-                        <a href='editarAutor.php?id=" . $autor->getIdAutor() . "'>Editar</a>
-                        <button onclick='confirmarExclusao(" . $autor->getIdAutor() . ")'>Excluir</button>
+                        <a href='editarEstudante.php?id=" . $estudante->getEstudanteId() . "'>Editar</a>
+                        <button onclick='confirmarExclusao(" . $estudante->getEstudanteId() . ")'>Excluir</button>
                     </td>
                 </tr>";
             }
         } else {
-            echo "<tr><td colspan='4'>Nenhum autor encontrado</td></tr>";
+            echo "<tr><td colspan='4'>Nenhum estudante encontrado</td></tr>";
         }
         ?>
     </table>
