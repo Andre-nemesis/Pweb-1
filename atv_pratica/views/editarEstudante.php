@@ -16,10 +16,10 @@ if (isset($_GET['id'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
-    $controller->EditarEstudante($nome);
-    echo '<br>'.$nome;
-    //header('Location: listarEstudantes.php');
-    //exit;
+    $nome_antigo = $_GET['nome_antigo'];
+    $controller->EditarEstudante($nome,$nome_antigo);
+    header('Location: listarEstudantes.php');
+    exit;
 }
 ?>
 
@@ -33,9 +33,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>Editar Estudante</h1>
     <a href="listarEstudantes.php">Voltar para a lista</a>
-    <form action="editarEstudante.php" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($estudante->getNome()); ?>" required>
+    <form action=<?php echo "'editarEstudante.php?nome_antigo=".$estudante->getNome()."'"?> method="post">
+        <label for="nome_antigo">Nome Antigo:</label>
+        <input type="text" id="nome_antigo" disabled name="nome_antigo" value="<?php echo htmlspecialchars($estudante->getNome()); ?>" required>    
+        <br>
+        <label for="nome">Novo Nome:</label>
+        <input type="text" id="nome" name="nome" required>
         <br>
         <input type="submit" value="Atualizar">
     </form>

@@ -54,10 +54,11 @@ class LivroController {
         
     }
 
-    public function EditarLivro(string $titulo, int $ano, string $autor) {
+    public function EditarLivro(string $titulo, int $ano, string $autor,string $titulo_antigo) {
         try{
             $id_autor = $this->autorRepository->getAutorId($autor);
-            $livro = new Livro($titulo, $ano, $id_autor,false);
+            $id_livro = $this->livroRepository->getLivroId($titulo_antigo);
+            $livro = new Livro($titulo, $ano, $id_autor,false,$id_livro);
             $this->livroRepository->editarLivro($livro);
             $this->mensagem = "Livro deletado com sucesso!";
         }

@@ -21,7 +21,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $titulo = $_POST['titulo'];
     $ano = $_POST['ano'];
     $autor_nome = $_POST['autor'];
-    $controller->EditarLivro($titulo,$ano,$autor_nome);
+    $livro_titulo_antigo = $_GET['titulo_antigo'];
+    $controller->EditarLivro($titulo,$ano,$autor_nome,$livro_titulo_antigo);
     header('Location: listarLivros.php');
     exit;
 }
@@ -37,13 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <h1>Editar Livro</h1>
     <a href="listarLivros.php">Voltar para a lista</a>
-    <form action="editarLivro.php" method="post">
-    <label for="titulo">Titulo:</label>
+    <form  action=<?php echo"'editarLivro.php?titulo_antigo=".$livro->getTitulo()."'"?>method="post">
+        <h3>Novas informações</h3>
+        <label for="titulo">Titulo:</label>
         <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($livro->getTitulo()); ?>" required>
-        <br>
         <label for="ano">Ano:</label>
         <input type="number" id="ano" name="ano" value="<?php echo htmlspecialchars($livro->getAno()); ?>" required>
-        <br>
         <label for="autor">Escolha um autor:</label>
         <select name="autor" id="autor" required >
             <?php foreach ($autores as $autor): ?>
@@ -53,9 +53,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endforeach; ?>
         </select>
         <br>
+        <br>
         <input type="submit" value="Atualizar">
     </form>
-
 
 </body>
 </html>

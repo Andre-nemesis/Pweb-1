@@ -108,6 +108,7 @@ class EstudanteRepository {
         $stmt->bind_param('i',$id_estudante);
         try{
             $stmt->execute();
+            
             $stmt->close();
         }
         catch (Exception $e){
@@ -121,10 +122,9 @@ class EstudanteRepository {
         
     }
 
-    public function editarEstudante(Estudante $estudante){
+    public function editarEstudante(Estudante $estudante,string $nome_antigo){
         $nome = $estudante->getNome();
-        $estudante_id = $this->getEstudanteId($estudante->getNome());
-        
+        $estudante_id = $this->getEstudanteId($nome_antigo);
 
         $this->openConnection();
         $query = 'UPDATE estudante SET estudante.nome_estudante = ? WHERE estudante.id = ?';
@@ -133,7 +133,6 @@ class EstudanteRepository {
         
         try{
             $stmt->execute();
-            echo '<br>'.'entrei aqui';
             $stmt->close();
         }
         catch (Exception $e){

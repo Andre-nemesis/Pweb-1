@@ -119,9 +119,9 @@ class LivroRepository{
         $titulo = $livro->getTitulo();
         $id_autor = $livro->getAutor();
         $ano = $livro->getAno();
-        $livro_id = $this->getLivroId($livro->getTitulo());
+        $livro_id = $livro->getIdLivro();
         $this->openConnection();
-        $query = 'UPDATE livro SET livro.titulo = ? livro.ano = ? livro.fk_autor = ? WHERE livro.id = ?';
+        $query = 'UPDATE livro SET livro.titulo = ?, livro.ano = ?, livro.fk_autor = ? WHERE livro.id = ?';
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param('siii',$titulo,$ano,$id_autor,$livro_id);
         

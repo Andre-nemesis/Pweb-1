@@ -43,10 +43,10 @@ class EstudanteController {
         return $this->estudanteRepository->listar_estudantes();
     }
 
-    public function EditarEstudante(string $nome){
+    public function EditarEstudante(string $nome, string $nome_antigo){
         try{
             $estudante = new Estudante($nome);
-            $this->estudanteRepository->editarEstudante($estudante);
+            $this->estudanteRepository->editarEstudante($estudante,$nome_antigo);
             $this->mensagem = "Estudante editado com sucesso!";
         }
         

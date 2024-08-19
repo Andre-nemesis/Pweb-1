@@ -133,6 +133,7 @@ BEGIN
 END $$	
 DELIMITER ;
 
+drop function if exists getEstudante_id;
 
 DELIMITER $$
 CREATE FUNCTION getEstudante_id(nome_in VARCHAR(80))
@@ -142,7 +143,7 @@ BEGIN
     DECLARE id_estudante INT;
     SELECT id INTO id_estudante FROM estudante WHERE nome_estudante = nome_in;
     IF id_estudante IS NULL THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Livro não encontrado';
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Estudante não encontrado';
     END IF;
     RETURN id_estudante;
 END $$
@@ -175,11 +176,13 @@ BEGIN
 END $$
 DELIMITER ;
 
+drop procedure if exists devolver_livro;
+
 DELIMITER $$
 CREATE PROCEDURE devolver_livro (id_livro INT,data_fim_in DATE)
 BEGIN
 	DECLARE data_emprestimo DATE;
-    SELECT em.data_inicio INTO data_emprestimo FROM emprestimo AS em WHERE em.fk_id_livro = id_livro;
+    SELECT em.data_inicio INTO data_emprestimo FROM emprestimo AS em WHERE em.fk_id_livro = id_livro ORDER BY em.data_inicio DESC LIMIT 1 ;
     IF data_fim_in < data_emprestimo THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'A data de devolução não pode ser anterior a data de empréstimo';
 	ELSE
