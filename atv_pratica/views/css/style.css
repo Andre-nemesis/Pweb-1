@@ -13,44 +13,62 @@ body {
     overflow-x: hidden;
 }
 
-.menu {
+.menu{
+
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
     z-index: 1;
-    background-color: white;
-    padding: 0.5rem;
-    font-size: 1rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    
+    font-size: 1rem;
 }
 
 
-#espaco {
-    margin-right: 40rem;
-}
-.menu img{
+.menu nav ul img{
     height: 2rem;
     width: 2rem;
-    margin-left: 1.7rem;
+    margin-right: 44.6rem;
+    margin-bottom: -0.5rem;
+    margin-left: 2.5rem;
 }
 
-.menu ul{
-    list-style: none;
+.menu nav{
+    background-color: white;
+    width: 100vw;
 }
 
-.menu a {
+
+.menu nav li{
+    display: inline-block;
+}
+
+.menu nav li a{
+    display: block;
     color: #13072e;
-    margin: 1rem;
     text-decoration: none;
-    
+    padding: 1rem;
 }
 
-.menu a:hover {
-    border-bottom: 0.25rem solid #13072e;
+.menu nav li a:hover{
+    background-color: #dfdfdf;
+}
+
+.dropdown-menu{
+    transition: all 0.5ms ease-in-out;
+    position: absolute;
+    box-shadow: 0 0 2px #13072e;
+    background-color: white;
+    display: none;
+}
+
+.dropdown-menu a{
+    font-size: 0.75rem;
+    display: block;
+    color: black;
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+    transform: scale(1.1);
 }
 
 .centro{
@@ -58,20 +76,6 @@ body {
     margin: 6rem 2rem 2rem 2rem;
 }
 
-.submenu {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-.submenu li {
-    padding: 15px 20px;
-}
-
-li:hover .submenu {
-    display: block;
-}
 .centro_centro{
     display: flex;
     justify-content: center;
@@ -80,6 +84,7 @@ li:hover .submenu {
     border-radius: 2rem;
     height: 70vh;
 }
+
 
 .centro_centro_dir{
     padding: 2rem;
@@ -99,7 +104,11 @@ li:hover .submenu {
     width: 50%;
 }
 
-.teste{
-    background-color: #13072e;
-    height: 40vh;
+.footer{
+    background-color: #333;
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
 }

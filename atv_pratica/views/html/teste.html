@@ -1,48 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca</title>
+    <title>Dropdown menu</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <header class="menu">
-        <img src="../imgs/book-open-svgrepo-com.svg">
-        
-        <nav>
-            <a href="">Home</a></li>
-            <a href="">Livros</a>
-            <a href="">Autores</a>
-            <a href="">Emprestimo</a>
-        </nav>
-    </header>
 
-    <main>
-        <section class="centro">
-            <div class="centro_centro">
-                <div class="centro_centro_dir">
-                    <h1>Bem vindo(a)!</h1>
-                    <p>Nossa biblioteca é um espaço dedicado ao conhecimento e à leitura, onde você pode explorar um vasto
-                        acervo de livros, conhecer autores renomados e registrar estudantes que compartilham o amor pela
-                        leitura. Com nosso sistema de gestão, você pode facilmente cadastrar novos títulos, gerenciar
-                        autores e pegar emprestado o livro que quiser. Navegue pelo nosso acervo e descubra tudo o que a
-                        nossa biblioteca tem a oferecer!</p>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="">Livros</a>
+                <div class="dropdown-menu">
+                    <a href="cadastarLivro.php">Cadastar Livro</a>
+                    <a href="editarLivro.php">Editar Livro</a>
+                    <a href="excluirLivro.php">Excluir Livro</a>
+                    <a href="listarLivro.php">Listar Livros</a>
                 </div>
-                <div class="centro_centro_esq">
-                    <h1>jorge</h1>
-                </div>
-            </div>
-        </section>
-    
-    </main>
+            </li>
+            <li>
+                <a href="">Sobre</a>
+            </li>
+            <li class="dropdown">
+                <a href="">Serviços</a>
 
+                <div class="dropdown-menu">
+                    <a href="">Serviço 1</a>
+                    <a href="">Serviço 2</a>
+                    <a href="">Serviço 3</a>
+                </div>
+            </li>
+            <li>
+                <a href="">Contato</a>
+            </li>
+        </ul>
+    </nav>
     
 </body>
-
 </html>

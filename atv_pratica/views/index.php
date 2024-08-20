@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
     <link rel="stylesheet" href="../views/css/style.css">
@@ -10,35 +11,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-
-<body>
     <header class="menu">
-        <img src="../imgs/book-open-svgrepo-com.svg">
-        
         <nav>
-        <ul>
-            <li>
-            <a href="#">Item 1</a>
-            <ul class="submenu">
-                <li><a href="pagina1.php">Opção 1</a></li>
-                <li><a href="pagina2.php">Opção 2</a></li>
-            </ul>
-            <a href="#">Item 2</a>
-            <ul class="submenu">
-                <li><a href="pagina1.php">Opção 1</a></li>
-                <li><a href="pagina2.php">Opção 2</a></li>
-            </ul>
-            <a href="#">Item 3</a>
-            <ul class="submenu">
-                <li><a href="pagina1.php">Opção 1</a></li>
-                <li><a href="pagina2.php">Opção 2</a></li>
-            </ul>
-            </li>
+            <ul>
+                <img src="../views/imgs/book-open-svgrepo-com.svg">
+                <li>
+                    <a href="index.php">Home</a>
+                </li>
+                <li class="dropdown">
+                    <a href="">Livros</a>
+                    <div class="dropdown-menu">
+                        <a href="cadastrarLivro.php">Cadastar Livro</a>
+                        <a href="listarLivros.php">Editar Livro</a>
+                        <a href="listarLivros.php">Excluir Livro</a>
+                        <a href="listarLivros.php">Listar Livros</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Autores</a>
+
+                    <div class="dropdown-menu">
+                        <a href="cadastrarEstudante.php">Cadastar Autor</a>
+                        <a href="listarEstudantes.php">Editar Autor</a>
+                        <a href="listarEstudantes.php">Excluir Autor</a>
+                        <a href="listarEstudantes.php">Listar Autores</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Estudantes</a>
+                    <div class="dropdown-menu">
+                        <a href="cadastrarEstudante.php">Cadastar Estudante</a>
+                        <a href="listarEstudantes.php">Editar Estudante</a>
+                        <a href="listarEstudantes.php">Excluir Estudante</a>
+                        <a href="listarEstudantes.php">Listar Estudantes</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Emprestimos</a>
+                    <div class="dropdown-menu">
+                        <a href="emprestarLivro.php">Emprestar Livro</a>
+                        <a href="devolverLivro.php">Devolver Livro</a>
+                        <a href="gerarRelatorio.php">Gerar Relatório</a>
+                    </div>
+                </li>
             </ul>
         </nav>
+        
     </header>
-
+    
     <main>
         <section class="centro">
             <div class="centro_centro">
@@ -55,9 +75,14 @@
                 </div>
             </div>
         </section>
-    
     </main>
 
-
+    <footer class="footer">
+    <p>Todos os direitos reservardo para os criadores</p>
+    <h5>Criadores</h5>
+    <p>André Casimiro da Silva</p>
+    <p>Francisca Geovanna de Lima da Silva</p>
+    <p>IFCE CAMPUS CEDRO 2024</p>
+    </footer>
 </body>
 </html>
