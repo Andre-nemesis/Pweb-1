@@ -22,8 +22,8 @@
                     <a href="">Livros</a>
                     <div class="dropdown-menu">
                         <a href="cadastrarLivro.php">Cadastar Livro</a>
-                        <a href="editarLivros.php">Editar Livro</a>
-                        <a href="excluirLivros.php">Excluir Livro</a>
+                        <a href="listarLivros.php">Editar Livro</a>
+                        <a href="listarLivros.php">Excluir Livro</a>
                         <a href="listarLivros.php">Listar Livros</a>
                     </div>
                 </li>
@@ -31,9 +31,9 @@
                     <a href="">Autores</a>
 
                     <div class="dropdown-menu">
-                        <a href="cadastrarAutor.php">Cadastar Autor</a>
-                        <a href="editarAutor.php">Editar Autor</a>
-                        <a href="excluirAutor.php">Excluir Autor</a>
+                        <a href="cadastrarEstudante.php">Cadastar Autor</a>
+                        <a href="listarEstudantes.php">Editar Autor</a>
+                        <a href="listarEstudantes.php">Excluir Autor</a>
                         <a href="listarEstudantes.php">Listar Autores</a>
                     </div>
                 </li>
@@ -41,8 +41,8 @@
                     <a href="">Estudantes</a>
                     <div class="dropdown-menu">
                         <a href="cadastrarEstudante.php">Cadastar Estudante</a>
-                        <a href="editarEstudantes.php">Editar Estudante</a>
-                        <a href="excluirEstudantes.php">Excluir Estudante</a>
+                        <a href="listarEstudantes.php">Editar Estudante</a>
+                        <a href="listarEstudantes.php">Excluir Estudante</a>
                         <a href="listarEstudantes.php">Listar Estudantes</a>
                     </div>
                 </li>
