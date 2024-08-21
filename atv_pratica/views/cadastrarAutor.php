@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Autor</title>
+    <?php include 'menu.php'; ?>
 </head>
 <body>
     <h1>Cadastrar Novo Autor</h1>

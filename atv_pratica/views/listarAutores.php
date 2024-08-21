@@ -16,6 +16,7 @@ $autores = $controller->ListarAutores();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Autores</title>
+    <?php include 'menu.php'; ?>
     <style>
         table {
             width: 100%;

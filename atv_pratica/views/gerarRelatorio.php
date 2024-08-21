@@ -16,6 +16,7 @@ $relatorios = $controller->gerarRelatorio();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relatório de Emprestimo</title>
+    <?php include 'menu.php'; ?>
     <style>
         table {
             width: 100%;
