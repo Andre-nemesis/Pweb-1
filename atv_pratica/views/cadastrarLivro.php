@@ -33,27 +33,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'menu.php'; ?>
 </head>
 <body>
-    <h1>Cadastrar Novo Livro</h1>
-    
-    <a href="index.php">Voltar para a página inicial</a>
-    <form action="cadastrarLivro.php" method="post">
-        <label for="titulo">Titulo:</label>
-        <input type="text" id="titulo" name="titulo" required>
-        <br>
-        <label for="ano">Ano:</label>
-        <input type="number" id="ano" name="ano" required>
-        <br>
-        <label for="autor">Escolha um autor:</label>
-        <select name="autor" id="autor" required>
-            <?php foreach ($autores as $autor): ?>
-                <option value="<?php echo $autor->getNome(); ?>">
-                    <?php echo $autor->getNome(); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-        <input type="submit" value="Cadastrar">
-    </form>
+    <div class="container">
+        <h1>Cadastrar Novo Livro</h1>
+        
+        <a href="index.php">Voltar para a página inicial</a>
+        <form action="cadastrarLivro.php" method="post">
+            <label class="form-group" for="titulo">Titulo:</label>
+            <input type="text" id="titulo" name="titulo" required>
+            <br>
+            <label class="form-group" for="ano">Ano:</label>
+            <input type="number" id="ano" name="ano" required>
+            <br>
+            <label class="form-group" for="autor">Escolha um autor:</label>
+            <select name="autor" id="autor" required>
+                <?php foreach ($autores as $autor): ?>
+                    <option value="<?php echo $autor->getNome(); ?>">
+                        <?php echo $autor->getNome(); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+            <br>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+
     <?php if (isset($controller_livro)) : ?>
         <div class="mensagem"><?php echo $controller_livro->getMensage(); ?></div>
     <?php endif; ?>
