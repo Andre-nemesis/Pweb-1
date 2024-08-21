@@ -22,20 +22,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../views/css/style.css">
     <title>Cadastrar Estudante</title>
     <?php include 'menu.php'; ?>
 </head>
 <body>
-    <h1>Cadastrar Novo Estudante</h1>
-    
-    <a href="index.php">Voltar para a página inicial</a>
-    <form action="cadastrarEstudante.php" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        <br>
-        <br>
-        <input type="submit" value="Cadastrar">
-    </form>
+<div class="container">
+        <section>
+        <div>
+            <h1 class="titulo-form-estudante">Cadastrar Novo Estudante</h1>
+        </div>
+        <div>
+            <img class="img-estudante" src="../views/imgs/" alt="">
+        </div>
+        </section>
+        
+        <div>
+            <form action="cadastrarEstudante.php" method="post">
+                <label for="nome">NOME:</label>
+                <input type="text" id="nome" name="nome" required>
+                <br>
+                <br>
+                <input type="submit" value="Cadastrar">
+            </form>
+        </div>
+    </div>
+
     <?php if (isset($controller)) : ?>
         <div class="mensagem"><?php echo $controller->getMensage(); ?></div>
     <?php endif; ?>

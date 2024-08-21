@@ -97,15 +97,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </section>
     </main>
 
-    <footer class="footer">
-        <p>Todos os direitos reservardo para os criadores</p>
-        <br>
-        <h4>Criadores</h4>
-        <p>André Casimiro da Silva</p>
-        <p>Francisca Geovanna de Lima da Silva</p>
-        <br>
-        <h4>Instituição</h4>
-        <p>IFCE CAMPUS CEDRO 2024</p>
-    </footer>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
