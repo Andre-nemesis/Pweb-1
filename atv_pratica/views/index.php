@@ -1,3 +1,32 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+include_once '../Controller/LivroController.php';
+include_once '../Controller/EstudanteController.php';
+include_once '../Controller/BibliotecaController.php';
+use Controller\LivroController;
+use Controller\EstudanteController;
+use Controller\BibliotecaController;
+
+// Cria uma instância do controlador com a conexão
+$controller_livro = new LivroController();
+$controller_estudante = new EstudanteController();
+$controller_biblioteca = new BibliotecaController();
+
+$livros = $controller_livro->ListarLivros();
+$estudantes = $controller_estudante->ListarEstudantes();
+
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $estudante = $_POST['estudante'];
+    $livro = $_POST['livro'];
+    $data_emprestimo = $_POST['data_emprestimo'];
+    $controller_biblioteca->emprestarLivro($estudante, $livro, $data_emprestimo);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -26,18 +55,57 @@
                         nossa biblioteca tem a oferecer!</p>
                 </div>
                 <div class="centro_centro_esq">
-                    <h1>jorge</h1>
+                    <img src="../views/imgs/livros.png" alt="">
                 </div>
             </div>
+        </section>
+
+        <section class="emprestimo_livro" id="emprestimo">
+            <h1>Cadastrar Novo Emprestimo</h1>
+            <br>
+            <form action="index.php" method="post">
+                <label for="estudante">Escolha um estudante:</label>
+                    <select name="estudante" id="estudante" required>
+                        <?php foreach ($estudantes as $estudante): ?>
+                            <option value="<?php echo $estudante->getNome(); ?>">
+                                <?php echo $estudante->getNome(); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                <br>
+                <br>
+                <label for="livro">Escolha um Livro:</label>
+                    <select name="livro" id="livro" required>
+                        <?php foreach ($livros as $livro): ?>
+                            <option value="<?php echo $livro->getTitulo(); ?>">
+                                <?php echo $livro->getTitulo(); ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                <br>
+                <br>
+                <label for="data_emprestimo">Data de Emprestimo:</label>
+                <br>
+                <input type="date" id="data_emprestimo" name="data_emprestimo" required>
+                <br>
+                <br>
+                <input type="submit" value="Cadastrar Emprestimo">
+            </form>
+            <?php if (isset($controller)) : ?>
+                <div class="mensagem"><?php echo $controller->getMensage(); ?></div>
+            <?php endif; ?>
         </section>
     </main>
 
     <footer class="footer">
-    <p>Todos os direitos reservardo para os criadores</p>
-    <h5>Criadores</h5>
-    <p>André Casimiro da Silva</p>
-    <p>Francisca Geovanna de Lima da Silva</p>
-    <p>IFCE CAMPUS CEDRO 2024</p>
+        <p>Todos os direitos reservardo para os criadores</p>
+        <br>
+        <h4>Criadores</h4>
+        <p>André Casimiro da Silva</p>
+        <p>Francisca Geovanna de Lima da Silva</p>
+        <br>
+        <h4>Instituição</h4>
+        <p>IFCE CAMPUS CEDRO 2024</p>
     </footer>
 </body>
 </html>
