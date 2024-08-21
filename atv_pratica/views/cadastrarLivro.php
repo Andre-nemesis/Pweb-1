@@ -34,17 +34,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-        <h1>Cadastrar Novo Livro</h1>
+        <h1 class="titulo-form">Cadastrar Novo Livro</h1>
         
-        <a href="index.php">Voltar para a página inicial</a>
         <form action="cadastrarLivro.php" method="post">
-            <label class="form-group" for="titulo">Titulo:</label>
+            <label class="form-group" for="titulo">TÍTULO:</label>
             <input type="text" id="titulo" name="titulo" required>
             <br>
-            <label class="form-group" for="ano">Ano:</label>
+            <label class="form-group" for="ano">ANO:</label>
             <input type="number" id="ano" name="ano" required>
             <br>
-            <label class="form-group" for="autor">Escolha um autor:</label>
+            <label class="form-group" for="autor">ESCOLHA UM AUTOR:</label>
             <select name="autor" id="autor" required>
                 <?php foreach ($autores as $autor): ?>
                     <option value="<?php echo $autor->getNome(); ?>">

@@ -115,12 +115,13 @@ body {
 
 
 .container {
-    padding: 2rem;
+    padding: 1.5rem;
     width: 60%;
-    margin: 50px auto;
+    height: 490px;
+    margin: auto;
     background-color: #b3aaff; 
     border-radius: 2rem;
-    margin-top: 115px;
+    margin-top: 150px;
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -129,9 +130,10 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    padding: 30px;
-    width: 300px;
+    padding: 5px;
+    width: 400px;
     color: #fff;
+    transform: translateX(25px);
 }
 
 .form-group {
@@ -160,7 +162,7 @@ select {
 }
 
 input[type="submit"] {
-    width: 50%;
+    width: 40%;
     background-color: #1e456f;
     color: white;
     border-radius: 10px;
@@ -170,8 +172,15 @@ input[type="submit"] {
     border: none;
     cursor: pointer;
     text-align: center;
+    align-self: center;
 }
 
 input[type="submit"]:hover {
     background-color: #0056b3;
+}
+
+.titulo-form{
+    color: #13072e;
+    transform: translateX(-35px);
+    margin-bottom: 10px;
 }
