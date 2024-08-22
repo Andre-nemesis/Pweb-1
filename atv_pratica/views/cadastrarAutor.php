@@ -53,5 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if (isset($controller)) : ?>
         <div class="mensagem"><?php echo $controller->getMensage(); ?></div>
     <?php endif; ?>
+
+    <?php include 'footer.php'; ?>
 </body>
 </html>

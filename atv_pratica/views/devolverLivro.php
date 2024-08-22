@@ -68,5 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if (isset($controller_livro)) : ?>
         <div class="mensagem"><?php echo $controller_biblioteca->getMensage(); ?></div>
     <?php endif; ?>
+
+    <?php include 'footer.php'; ?>
 </body>
 </html>
