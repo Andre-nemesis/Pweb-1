@@ -164,6 +164,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    margin-top: 5rem;
 }
 
 .container div h1 {
