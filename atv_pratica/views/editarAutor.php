@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'menu.php'; ?>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <section>
             <div>
                 <h1 class="titulo-form-editarAutor">Editar Autor</h1>
@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="submit" value="Atualizar">
             </form>
         </div>
+    </div>
 
 </body>
 </html>
