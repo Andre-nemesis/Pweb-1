@@ -154,7 +154,7 @@ body {
 
 .container {
     padding: 1.5rem;
-    width: 60%;
+    width: 65%;
     height: 490px;
     margin: auto;
     background-color: #b3aaff;
@@ -339,3 +339,4 @@ th {
 .container .titulo-form-editarAutor{
     margin-right: 75px;
 }
+
