@@ -28,21 +28,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../views/css/style.css">
     <title>Editar Autor</title>
     <?php include 'menu.php'; ?>
 </head>
 <body>
-    <h1>Editar Autor</h1>
-    <a href="listarAutores.php">Voltar para a lista</a>
-    <form action="editarAutor.php" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($autor->getNome()); ?>" required>
-        <br>
-        <label for="nacionalidade">Nacionalidade:</label>
-        <input type="text" id="nacionalidade" name="nacionalidade" value="<?php echo htmlspecialchars($autor->getNacionalidade()); ?>" required>
-        <br>
-        <input type="submit" value="Atualizar">
-    </form>
+<div class="container">
+        <section>
+            <div>
+                <h1 class="titulo-form-editarAutor">Editar Autor</h1>
+            </div>
+            <div>
+                <img src="../views/imgs/b" alt="">
+            </div>
+        </section>
+
+        <div>
+            <form action="editarAutor.php" method="post">
+                <label class="form-group" for="nome">NOME:</label>
+                <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($autor->getNome()); ?>" required>
+                <br>
+                <label class="form-group" for="nacionalidade">NACIONALIDADE:</label>
+                <input type="text" id="nacionalidade" name="nacionalidade" value="<?php echo htmlspecialchars($autor->getNacionalidade()); ?>" required>
+                <br>
+                <input type="submit" value="Atualizar">
+            </form>
+        </div>
 
 </body>
 </html>
