@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="titulo-form-estudante">Cadastrar Novo Estudante</h1>
         </div>
         <div>
-            <img class="img-estudante" src="../views/imgs/" alt="">
+            <img class="img-estudante" src="../views/imgs/student-svgrepo-com (2).svg" id="espaco">
         </div>
         </section>
         
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="text" id="nome" name="nome" required>
                 <br>
                 <br>
-                <input type="submit" value="Cadastrar">
+                <input type="submit" value="Cadastrar" id="botao_meio">
             </form>
         </div>
     </div>

@@ -47,6 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <section class="centro">
             <div class="centro_centro">
                 <div class="centro_centro_dir">
+                    <h1 style="color:#b3aaff;">Jorge</h1>
                     <h1>Bem vindo(a)!</h1>
                     <p>Nossa biblioteca é um espaço dedicado ao conhecimento e à leitura, onde você pode explorar um vasto
                         acervo de livros, conhecer autores renomados e registrar estudantes que compartilham o amor pela

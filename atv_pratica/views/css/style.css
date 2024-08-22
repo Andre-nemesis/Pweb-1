@@ -39,7 +39,6 @@ body {
   }
 
 .menu {
-
     position: fixed;
     z-index: 1;
     display: flex;
@@ -51,7 +50,7 @@ body {
 .menu nav ul img {
     height: 2rem;
     width: 2rem;
-    margin-right: 44.6rem;
+    margin-right: 50rem;
     margin-bottom: -0.5rem;
     margin-left: 2.5rem;
 }
@@ -118,7 +117,6 @@ body {
 
 .centro_centro_dir h1 {
     font-size: 2rem;
-    margin-top: 5rem;
     margin-left: 3rem;
     font-family: 'Times New Roman', Times, serif;
 }
@@ -164,6 +162,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 5rem;
     margin-top: 5rem;
 }
 
@@ -177,6 +176,19 @@ body {
     margin-left: 7rem;
     width: 5rem;
     height: 5rem;
+}
+
+#espaco{
+   margin-left: 12rem; 
+}
+
+#botao_meio{
+    margin-right: 1rem;
+}
+
+#botao_devolver{
+    margin-right: 1rem;
+    width: 15vw;
 }
 
 .container form {
@@ -231,6 +243,21 @@ select {
     align-self: center;
 }
 
+.container input[type="date"]{
+    width: 100%; 
+    appearance: none;
+    border: none;
+    padding: 7px;
+    font-size: 16px;
+    margin-top: 2px;
+    border: 1px solid #0056b3;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    background-color: #f0edff;
+    color: #13072e;
+    font-size: 16px;
+}
+
 .container input[type="submit"]:hover {
     background-color: #0056b3;
 }
@@ -250,7 +277,7 @@ th,
 td {
     border: 1px solid #1e456f;
     padding: 8px;
-    text-align: left;
+    text-align: center;
 }
 
 tr {

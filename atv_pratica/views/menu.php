@@ -49,7 +49,7 @@
                 <li class="dropdown">
                     <a href="">Emprestimos</a>
                     <div class="dropdown-menu">
-                        <a href="#emprestimo">Reservar Livro</a>
+                        <a href="index.php#emprestimo">Reservar Livro</a>
                         <a href="devolverLivro.php">Devolver Livro</a>
                         <a href="gerarRelatorio.php">Gerar Relatório</a>
                     </div>

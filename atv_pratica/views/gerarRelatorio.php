@@ -18,41 +18,28 @@ $relatorios = $controller->gerarRelatorio();
     <title>Relatório de Emprestimo</title>
     <?php include 'menu.php'; ?>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
         a {
             margin-right: 10px;
             text-decoration: none;
-            color: #007BFF;
+            color: #13072e;
         }
         a:hover {
             text-decoration: underline;
         }
         button {
-            background-color: #dc3545;
+            background-color: #ff4b5c;
             color: white;
             border: none;
             padding: 5px 10px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #c82333;
+            background-color: #f41b30;
         }
     </style>
 </head>
 <body>
-    <h1>Lista de Emprestimos</h1>
-    <a href="index.php">Voltar para a página inicial</a>
-    <table>
+    <table style="margin-top: 5rem;">
         <tr>
             <th>Livro</th>
             <th>Estudante</th>

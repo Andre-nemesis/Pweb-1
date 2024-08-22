@@ -47,9 +47,7 @@ $livros = $controller->ListarLivros();
     </script>
 </head>
 <body>
-    <h1>Lista de Livros</h1>
-    <a href="index.php">Voltar para a página inicial</a>
-    <table>
+    <table style="margin-top: 5rem;">
         <tr>
             <th>ID</th>
             <th>Titulo</th>

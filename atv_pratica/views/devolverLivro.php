@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1 class="titulo-form-devolverLivro">Cadastrar Nova Devolução</h1>
             </div>
             <div>
-                <img src="../views/imgs/" alt="">
+                <img src="../views/imgs/align-right-svgrepo-com.svg" id="espaco">
             </div>
         </section>
 
@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="date" id="data_devolucao" name="data_devolucao" required>
                 <br>
                 
-                <input type="submit" value="Cadastrar Devolução">
+                <input type="submit" value="Cadastrar Devolução" id="botao_devolver">
             </form>
         </div>
     </div>

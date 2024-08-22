@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="titulo-form-autor">Cadastrar Novo Autor</h1>
         </div>
         <div>
-            <img class="img-estudante" src="../views/imgs/" alt="">
+            <img class="img-estudante" src="../views/imgs/author-sign-svgrepo-com.svg" style="margin-left: 9rem;">
         </div>
         </section>
             
