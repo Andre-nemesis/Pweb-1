@@ -27,18 +27,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'menu.php'; ?>
 </head>
 <body>
-    <h1>Cadastrar Novo Autor</h1>
-    
-    <a href="index.php">Voltar para a página inicial</a>
-    <form action="cadastrarAutor.php" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
-        <br>
-        <label for="nacionalidade">Nacionalidade:</label>
-        <input type="text" id="nacionalidade" name="nacionalidade" required>
-        <br>
-        <input type="submit" value="Cadastrar">
-    </form>
+<div class="container">
+        <section>
+        <div>
+            <h1 class="titulo-form-autor">Cadastrar Novo Autor</h1>
+        </div>
+        <div>
+            <img class="img-estudante" src="../views/imgs/" alt="">
+        </div>
+        </section>
+            
+        <div>
+            <form action="cadastrarAutor.php" method="post">
+                <label class="form-group" for="nome">NOME:</label>
+                <input type="text" id="nome" name="nome" required>
+                <br>
+                <label class="form-group" for="nacionalidade">NACIONALIDADE:</label>
+                <input type="text" id="nacionalidade" name="nacionalidade" required>
+                <br>
+                <input type="submit" value="Cadastrar">
+            </form>
+        </div>
+        
     <?php if (isset($controller)) : ?>
         <div class="mensagem"><?php echo $controller->getMensage(); ?></div>
     <?php endif; ?>

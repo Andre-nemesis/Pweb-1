@@ -169,6 +169,7 @@ body {
 .container div h1 {
     font-size: 2rem;
     margin-left: 1rem;
+    color: #13072e;
 }
 
 .container div img {
@@ -329,4 +330,8 @@ th {
 .container .editarLivro-form{
     margin-left: 80px;
     margin-top: 15px;
+}
+
+.container .titulo-form-autor{
+    margin-right: 20px;
 }
