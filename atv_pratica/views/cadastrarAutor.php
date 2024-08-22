@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'menu.php'; ?>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <section>
         <div>
             <h1 class="titulo-form-autor">Cadastrar Novo Autor</h1>
@@ -48,6 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="submit" value="Cadastrar">
             </form>
         </div>
+    </div>
         
     <?php if (isset($controller)) : ?>
         <div class="mensagem"><?php echo $controller->getMensage(); ?></div>

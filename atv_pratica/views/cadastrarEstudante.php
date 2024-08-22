@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'menu.php'; ?>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <section>
         <div>
             <h1 class="titulo-form-estudante">Cadastrar Novo Estudante</h1>

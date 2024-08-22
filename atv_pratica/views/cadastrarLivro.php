@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
 
         </div>
-            </div>
+    </div>
 
     <?php if (isset($controller_livro)) : ?>
         <div class="mensagem"><?php echo $controller_livro->getMensage(); ?></div>

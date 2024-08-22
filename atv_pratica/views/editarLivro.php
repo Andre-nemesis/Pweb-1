@@ -38,14 +38,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'menu.php'; ?>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <section>
-        <div>
-            <h1 class="titulo-form">Editar Livro</h1>
-        </div>
-        <div>
-            <img class="img-estudante" src="../views/imgs/" alt="">
-        </div>
+            <div>
+                <h1 class="titulo-form">Editar Livro</h1>
+            </div>
+            <div>
+                <img class="img-estudante" src="../views/imgs/" alt="">
+            </div>
         </section>
 
         <div>
@@ -68,7 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </select>
                 <br>
                 <input type="submit" value="Atualizar">
-        </form>
+            </form>
+        </div>
+    </div>
 
 </body>
 </html>
