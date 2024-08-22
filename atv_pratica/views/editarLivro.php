@@ -33,30 +33,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../views/css/style.css">
     <title>Editar Livro</title>
     <?php include 'menu.php'; ?>
 </head>
 <body>
-    <h1>Editar Livro</h1>
-    <a href="listarLivros.php">Voltar para a lista</a>
-    <form  action=<?php echo"'editarLivro.php?titulo_antigo=".$livro->getTitulo()."'"?>method="post">
-        <h3>Novas informações</h3>
-        <label for="titulo">Titulo:</label>
-        <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($livro->getTitulo()); ?>" required>
-        <label for="ano">Ano:</label>
-        <input type="number" id="ano" name="ano" value="<?php echo htmlspecialchars($livro->getAno()); ?>" required>
-        <label for="autor">Escolha um autor:</label>
-        <select name="autor" id="autor" required >
-            <?php foreach ($autores as $autor): ?>
-                <option value="<?php echo $autor->getNome(); ?>">
-                    <?php echo $autor->getNome(); ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-        <br>
-        <input type="submit" value="Atualizar">
-    </form>
+<div class="container">
+        <section>
+        <div>
+            <h1 class="titulo-form">Editar Livro</h1>
+        </div>
+        <div>
+            <img class="img-estudante" src="../views/imgs/" alt="">
+        </div>
+        </section>
+
+        <div>
+            <form class="editarLivro-form" action=<?php echo"'editarLivro.php?titulo_antigo=".$livro->getTitulo()."'"?>method="post">
+                <h3>Novas informações</h3>
+                <br>
+                <label for="titulo">TÍTULO:</label>
+                <input type="text" id="titulo" name="titulo" value="<?php echo htmlspecialchars($livro->getTitulo()); ?>" required>
+                <br>
+                <label for="ano">ANO:</label>
+                <input type="number" id="ano" name="ano" value="<?php echo htmlspecialchars($livro->getAno()); ?>" required>
+                <br>
+                <label for="autor">ESCOLHA UM AUTOR:</label>
+                <select name="autor" id="autor" required >
+                    <?php foreach ($autores as $autor): ?>
+                        <option value="<?php echo $autor->getNome(); ?>">
+                            <?php echo $autor->getNome(); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <br>
+                <input type="submit" value="Atualizar">
+        </form>
 
 </body>
 </html>

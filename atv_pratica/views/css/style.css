@@ -318,3 +318,15 @@ th {
     transform: translateX(-15px);
     margin-top: -30px;
 }
+
+.container h3{
+    font-size: 22px;
+    color: #1d0b48;
+    margin-top: -30px;
+    align-self: center;
+}
+
+.container .editarLivro-form{
+    margin-left: 80px;
+    margin-top: 15px;
+}
