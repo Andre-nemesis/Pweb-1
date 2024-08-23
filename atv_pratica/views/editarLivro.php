@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1 class="titulo-form">Editar Livro</h1>
             </div>
             <div>
-                <img class="img-estudante" src="../views/imgs/" alt="">
+                <img class="img-estudante" src="../views/imgs/edit.svg" style="margin-left: 2rem;">
             </div>
         </section>
 

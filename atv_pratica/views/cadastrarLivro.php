@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1 class="titulo-form">Cadastrar Novo Livro</h1>
             </div>
             <div>
-                <img src="../views/imgs/book-open-svgrepo-com (1).svg" alt="">
+                <img src="../views/imgs/book.svg" alt="">
             </div>
         </section>
         
@@ -65,11 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </div>
     </div>
-
-    <?php if (isset($controller_livro)) : ?>
-        <div class="mensagem"><?php echo $controller_livro->getMensage(); ?></div>
-    <?php endif; ?>
-
 
     <?php include 'footer.php'; ?>
 </body>

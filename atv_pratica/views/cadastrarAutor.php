@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="titulo-form-autor">Cadastrar Novo Autor</h1>
         </div>
         <div>
-            <img class="img-estudante" src="../views/imgs/author-sign-svgrepo-com.svg" style="margin-left: 9rem;">
+            <img class="img-estudante" src="../views/imgs/author.svg" style="margin-left: 9rem;">
         </div>
         </section>
             
@@ -49,10 +49,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
-        
-    <?php if (isset($controller)) : ?>
-        <div class="mensagem"><?php echo $controller->getMensage(); ?></div>
-    <?php endif; ?>
 
     <?php include 'footer.php'; ?>
 </body>

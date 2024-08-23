@@ -65,9 +65,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <input type="submit" value="Cadastrar Emprestimo">
     </form>
-    <?php if (isset($controller_livro)) : ?>
-        <div class="mensagem"><?php echo $controller_biblioteca->getMensage(); ?></div>
-    <?php endif; ?>
 
     <?php include 'footer.php'; ?>
 </body>

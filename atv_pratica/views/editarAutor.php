@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1 class="titulo-form-editarAutor">Editar Autor</h1>
             </div>
             <div>
-                <img src="../views/imgs/b" alt="">
+                <img src="../views/imgs/edit.svg" style="margin-left: 4.5rem;">
             </div>
         </section>
 

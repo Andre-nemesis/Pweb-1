@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <h1 class="titulo-form-devolverLivro">Cadastrar Nova Devolução</h1>
             </div>
             <div>
-                <img src="../views/imgs/align-right-svgrepo-com.svg" id="espaco">
+                <img src="../views/imgs/return_book.svg" id="espaco">
             </div>
         </section>
 
@@ -64,10 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
-
-    <?php if (isset($controller_livro)) : ?>
-        <div class="mensagem"><?php echo $controller_biblioteca->getMensage(); ?></div>
-    <?php endif; ?>
 
     <?php include 'footer.php'; ?>
 </body>

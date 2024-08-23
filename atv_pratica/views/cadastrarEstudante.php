@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="titulo-form-estudante">Cadastrar Novo Estudante</h1>
         </div>
         <div>
-            <img class="img-estudante" src="../views/imgs/student-svgrepo-com (2).svg" id="espaco">
+            <img class="img-estudante" src="../views/imgs/student.svg" id="espaco">
         </div>
         </section>
         
@@ -47,10 +47,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </form>
         </div>
     </div>
-
-    <?php if (isset($controller)) : ?>
-        <div class="mensagem"><?php echo $controller->getMensage(); ?></div>
-    <?php endif; ?>
 
     <?php include 'footer.php'; ?>
 </body>
