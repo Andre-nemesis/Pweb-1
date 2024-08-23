@@ -33,10 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php include 'menu.php'; ?>
 </head>
 <body>
-<div class="container">
+    <div class="container">
         <section>
             <div>
-                <h1>Editar Estudante</h1>
+                <h1 class="titulo-form-editarEstudante">Editar Estudante</h1>
             </div>
             <div>
                 <img src="../views/imgs/book-open-svgrepo-com (1).svg" alt="">

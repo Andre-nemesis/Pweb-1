@@ -28,7 +28,6 @@ class AutorController {
             $this->mensagem = $e->getMessage();
         }
         
-    
     }
 
     public function ExcluirAutor(int $id){
