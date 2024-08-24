@@ -54,8 +54,10 @@ $autores = $controller->ListarAutores();
             <th>Ações</th>
         </tr>
         <?php
+        // Verificar se o array de autores não está vazio
         if (!empty($autores)) {
             foreach ($autores as $autor) {
+                // Mostra as infotmações do autor na tabela
                 echo "<tr>
                     <td>" . $autor->getIdAutor() . "</td>
                     <td>" . $autor->getNome() . "</td>
@@ -67,6 +69,7 @@ $autores = $controller->ListarAutores();
                 </tr>";
             }
         } else {
+            // Se o array autores estiver vazio 
             echo "<tr><td colspan='4'>Nenhum autor encontrado</td></tr>";
         }
         ?>

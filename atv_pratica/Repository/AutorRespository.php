@@ -66,7 +66,7 @@ class AutorRepository{
         }
     }
 
-    // ajeitar aqui
+    // Retornar o ID do autor com base no seu nome
     public function getAutorId(string $nome_autor){
         $this->openConnection();
         $query = "SELECT getAutor_id(?) AS 'id';";
@@ -115,6 +115,7 @@ class AutorRepository{
         
     }
 
+    // Buscar um autor pelo seu ID
     public function findById(int $id) {
         $this->openConnection();
         

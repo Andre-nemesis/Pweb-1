@@ -59,6 +59,7 @@ class EstudanteController {
         return $this->mensagem;
     }
 
+    // Busca informações de um estudante pelo seu ID
     public function getEstudanteById(int $id){
         try{
             return $this->estudanteRepository->findById($id);

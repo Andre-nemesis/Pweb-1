@@ -72,6 +72,7 @@ class EstudanteRepository {
         }
     }
 
+    // Retornar o ID do estudante com base no seu nome
     public function getEstudanteId(string $nome_estudante){
         $this->openConnection();
         $query = "SELECT getEstudante_id(?) AS 'id'";
@@ -143,6 +144,7 @@ class EstudanteRepository {
         }
     }
 
+    // Buscar um autor pelo seu ID
     public function findById(int $id) {
         $this->openConnection();
         

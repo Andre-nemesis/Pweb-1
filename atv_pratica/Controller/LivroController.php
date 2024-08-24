@@ -72,6 +72,7 @@ class LivroController {
         return $this->mensagem;
     }
 
+    // Busca informações de um livro pelo seu ID
     public function getLivroById(int $id){
         try{
             return $this->livroRepository->findById($id);

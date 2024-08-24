@@ -77,6 +77,7 @@ class BibliotecaRepository{
         }
     }
 
+    // Gera um relatório de livros reservados
     public function gerarRelatorio(){
         $this->openConnection();
         $query = 'CALL gerar_relatorio();';
@@ -85,6 +86,7 @@ class BibliotecaRepository{
             $result = $this->conn->query($query);
             if ($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
+                    // Se a data do fim do empréstimo for nulla, adiciona uma nova instância de Relatorio ao array com "sem data"
                     if(is_null($row['data_fim'])){
                         $relatorio[] = new Relatorio($row['nome_estudante'],
                                                 $row['titulo'],
@@ -92,13 +94,14 @@ class BibliotecaRepository{
                                                 'sem data');
                     }
                     else{
+                        // Se não, adiciona uma nova instância de Realtorio com a informação da data de fim do empréstimo
                         $relatorio[] = new Relatorio($row['nome_estudante'],
                                                 $row['titulo'],
                                                 $row['data_inicio'],
                                                 $row['data_fim']);
                     }
                     
-            }
+                }
             $result->free();
             return $relatorio;
             }

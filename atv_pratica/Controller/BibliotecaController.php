@@ -10,12 +10,14 @@ use Repository\BibliotecaRepository;
 class BibliotecaController{
     private BibliotecaRepository $biblioteca_repository;
 
+    // Armazenar mensagens de feedback
     private string $mensagem = '';
 
     public function __construct(){
         $this->biblioteca_repository = new BibliotecaRepository();
     }
 
+    // Gerar um relatório dos livros emprestados
     public function gerarRelatorio(){
         try{
             $livros_emprestados = $this->biblioteca_repository->gerarRelatorio();
