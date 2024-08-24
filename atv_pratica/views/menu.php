@@ -14,7 +14,7 @@
     <header class="menu">
         <nav>
             <ul>
-                <img src="../views/imgs/book-open-svgrepo-com.svg">
+                <img src="../views/imgs/library.svg">
                 <li>
                     <a href="index.php">Home</a>
                 </li>

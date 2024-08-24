@@ -281,7 +281,7 @@ td {
 }
 
 tr {
-    background-color: #b3aaff;
+    background-color: #e8e6ff;
 }
 
 th {
@@ -320,7 +320,7 @@ th {
     cursor: pointer;
     text-align: center;
     align-self: center;
-    margin-left: 3rem;
+    margin-left: 1.8rem;
 }
 
 .emprestimo_livro input[type="submit"]:hover {
