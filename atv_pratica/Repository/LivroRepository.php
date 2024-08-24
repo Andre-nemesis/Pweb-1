@@ -50,14 +50,19 @@ class LivroRepository{
         $livros = [];
         try{
             $result = $this->conn->query($query);
+            // Verificar se existem autores cadastrados antes de criar a intância livro
             if($result->num_rows > 0){
                 while($row = $result->fetch_assoc()){
-                    $livros[] = new Livro($row['titulo'],
-                                        $row['ano'],$row['fk_autor'],
-                                        $row['status'],$row['id']);
+                    if($row['fk_autor'] !== null){
+                        $livros[] = new Livro($row['titulo'],
+                                            $row['ano'],$row['fk_autor'],
+                                            $row['status'],$row['id']);
+                    }
                 }
                 $result->free();
                 return $livros;
+            } else{
+                echo "Nenhum livro encontrado";
             }
             
         }
@@ -69,6 +74,7 @@ class LivroRepository{
         }
     }
 
+    // Retornar o ID do livro com base no seu título
     public function getLivroId(string $titulo){
         $this->openConnection();
         $query = "SELECT getLivro_id(?) AS 'id';";
@@ -137,6 +143,7 @@ class LivroRepository{
         }
     }
 
+    // Buscar um livro pelo seu ID
     public function findById(int $id) {
         $this->openConnection();
         try{
