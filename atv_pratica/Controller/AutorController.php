@@ -8,6 +8,14 @@ use Model\Autor;
 use Exception;
 
 class AutorController {
+     /**
+     * Classe de AutorController
+     * Classe referente ao controle do repositório na inserção de dados
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private AutorRepository $autorRepository;
 
     private string $mensagem = '';

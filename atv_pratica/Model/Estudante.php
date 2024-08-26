@@ -3,6 +3,13 @@
 namespace Model;
 use Exception;
 class Estudante{
+    /**
+     * Classe de Estudante
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private string $nome;
 
     private int $id;

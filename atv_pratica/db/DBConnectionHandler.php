@@ -6,6 +6,14 @@ use mysqli;
 use Exception;
 
 class DBConectionHandler{
+    /**
+     * Classe de DBConectionHandler
+     * Classe referente ao controle da conexão com o banco de dados
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private static string $host = "127.0.0.1:3306";
     private static string $db_name = "db_teste";
     private static string $user = "andre";

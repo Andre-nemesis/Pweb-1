@@ -19,6 +19,9 @@ $livros = $controller->ListarLivros();
     <link rel="stylesheet" href="../views/css/style.css">
     <?php include 'menu.php'; ?>
     <style>
+        h1{
+            color: #13072e;
+        }
         a {
             margin-right: 10px;
             text-decoration: none;
@@ -47,7 +50,8 @@ $livros = $controller->ListarLivros();
     </script>
 </head>
 <body>
-    <table style="margin-top: 5rem;">
+    <h1 style="margin-top: 5rem;">Lista de Livros</h1>
+    <table>
         <tr>
             <th>ID</th>
             <th>Titulo</th>
@@ -59,11 +63,18 @@ $livros = $controller->ListarLivros();
         <?php
         if (!empty($livros)) {
             foreach ($livros as $livro) {
+                $msg = '';
+                if ($livro->getStatus()){
+                    $msg = 'Disponivel';
+                }
+                else{
+                    $msg = 'Emprestado';
+                }
                 echo "<tr>
                     <td>" . $livro->getIdLivro() . "</td>
                     <td>" . $livro->getTitulo() . "</td>
                     <td>" . $livro->getAno() . "</td>
-                    <td>" . $livro->getStatus() . "</td>
+                    <td>" . $msg . "</td>
                     <td>" . $livro->getAutor() . "</td>
                     <td>
                         <a href='editarLivro.php?id=" . $livro->getIdLivro() . "'>Editar</a>
@@ -72,7 +83,7 @@ $livros = $controller->ListarLivros();
                 </tr>";
             }
         } else {
-            echo "<tr><td colspan='4'>Nenhum livro encontrado</td></tr>";
+            echo "<tr><td colspan='6'>Nenhum livro encontrado</td></tr>";
         }
         ?>
     </table>

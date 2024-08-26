@@ -11,6 +11,14 @@ require_once '../Model/Livro.php';
 require_once '../db/DBConnectionHandler.php';
 
 class LivroRepository{
+    /**
+     * Classe de LivroRepository
+     * Classe referente a gestão de da entrada de dados referente ao modelo Livro.
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private Livro $livro;
     private DBConectionHandler $connection_handle;
     private $conn;

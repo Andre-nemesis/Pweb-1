@@ -18,6 +18,9 @@ $autores = $controller->ListarAutores();
     <title>Lista de Autores</title>
     <?php include 'menu.php'; ?>
     <style>
+        h1{
+            color: #13072e;
+        }
         a {
             margin-right: 10px;
             text-decoration: none;
@@ -46,7 +49,8 @@ $autores = $controller->ListarAutores();
     </script>
 </head>
 <body>
-    <table style="margin-top: 5rem;">
+    <h1 style="margin-top: 5rem;">Lista de Autores</h1>
+    <table>
         <tr>
             <th>ID</th>
             <th>Nome</th>

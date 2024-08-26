@@ -5,6 +5,13 @@ namespace Model;
 use Exception;
 
 class Livro{
+    /**
+     * Classe de Livro
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private int $idLivro;
     private string $titulo;
     private int $ano;

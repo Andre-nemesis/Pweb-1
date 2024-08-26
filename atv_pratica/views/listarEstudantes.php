@@ -23,6 +23,9 @@ foreach ($estudantes as $estud){
     <title>Lista de Estudantes</title>
     <?php include 'menu.php'; ?>
     <style>
+        h1{
+            color: #13072e;
+        }
         a {
             margin-right: 10px;
             text-decoration: none;
@@ -51,7 +54,8 @@ foreach ($estudantes as $estud){
     </script>
 </head>
 <body>
-    <table style="margin-top: 5rem;">
+    <h1 style="margin-top: 5rem;">Lista de Estudantes</h1>
+    <table>
         <tr> 
             <th>ID</th>
             <th>Nome</th>

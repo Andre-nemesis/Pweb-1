@@ -10,6 +10,14 @@ use db\DBConectionHandler;
 use Model\Autor;
 
 class AutorRepository{
+    /**
+     * Classe de AutorRepository
+     * Classe referente a gestão de da entrada de dados referente ao modelo Autor.
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private DBConectionHandler $connection_handle;
     private $conn;
 

@@ -9,9 +9,15 @@ use Exception;
 use db\DBConectionHandler;
 use Model\Estudante;
 
-use function PHPSTORM_META\type;
-
 class EstudanteRepository {
+    /**
+     * Classe de EstudanteRepository
+     * Classe referente a gestão de da entrada de dados referente ao modelo Estudante.
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private DBConectionHandler $conection_handle;
     private $conn;
 

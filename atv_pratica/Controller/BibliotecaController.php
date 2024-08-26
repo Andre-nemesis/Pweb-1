@@ -8,6 +8,14 @@ use Exception;
 use Repository\BibliotecaRepository;
 
 class BibliotecaController{
+    /**
+     * Classe de BibliotecaController
+     * Classe referente a gestão da biblioteca, para emprestimo e devolução de livro e geração de relatório.
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private BibliotecaRepository $biblioteca_repository;
 
     // Armazenar mensagens de feedback

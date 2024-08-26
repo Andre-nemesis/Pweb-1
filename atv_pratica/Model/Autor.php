@@ -6,6 +6,13 @@ use Exception;
 
 
 class Autor{
+    /**
+     * Classe de Autor
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private int $idAutor;
 
     private string $nome;

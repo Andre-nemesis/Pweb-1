@@ -9,6 +9,14 @@ use Model\Estudante;
 use Exception;
 
 class EstudanteController {
+    /**
+     * Classe de EstudanteController
+     * Classe referente a gestão do repositório do estudante.
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private EstudanteRepository $estudanteRepository;
 
     private string $mensagem = '';

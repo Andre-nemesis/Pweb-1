@@ -14,6 +14,14 @@ use Model\Relatorio;
 
 
 class BibliotecaRepository{
+    /**
+     * Classe de BibliotecaRepository
+     * Classe referente a gestão de da entrada de dados referente ao modelo Relatório.
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private EstudanteRepository $estudante_repo;
     private LivroRepository $livro_repo;
     private DBConectionHandler $connection_handle;

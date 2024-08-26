@@ -11,6 +11,14 @@ use Model\Livro;
 use Exception;
 
 class LivroController {
+    /**
+     * Classe de LivroController
+     * Classe referente a gestão do repositório de Livros.
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private LivroRepository $livroRepository;
 
     private AutorRepository $autorRepository;

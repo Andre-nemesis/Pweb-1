@@ -4,6 +4,13 @@ namespace Model;
 use Exception;
 
 class Relatorio{
+    /**
+     * Classe de Relatório de Livros
+     *
+     * @author André Casimiro <andre.casimiro@gmail.com>
+     * @author Geovanna <fgeovanna111@gmail.com>
+     * @version 1.0
+     */
     private string $titulo_livro;
 
     private string $nome_estudante;
