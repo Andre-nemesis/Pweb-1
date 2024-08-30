@@ -3,16 +3,12 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once '../Controller/EstudanteController.php';
+include_once '../../Controller/EstudanteController.php';
 use Controller\EstudanteController;
 
 $controller = new EstudanteController();
 $estudantes = $controller->ListarEstudantes();
 echo is_null($estudantes);
-/*
-foreach ($estudantes as $estud){
-    echo $estud->getNome() . ' ' . $estud->getEstudanteId() .'<br>';
-}*/
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +17,7 @@ foreach ($estudantes as $estud){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudantes</title>
-    <?php include 'menu.php'; ?>
+    <?php include '../Head_Footer/menu.php'; ?>
     <style>
         h1{
             color: #13072e;

@@ -2,7 +2,7 @@
 
 namespace Controller;
 
-require_once '../Repository/BibliotecaRepository.php';
+require_once '../../Repository/BibliotecaRepository.php';
 
 use Exception;
 use Repository\BibliotecaRepository;

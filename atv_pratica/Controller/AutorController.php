@@ -1,8 +1,8 @@
 <?php
 namespace Controller;
 
-require_once '../Repository/AutorRespository.php';
-require_once '../Model/Autor.php';
+require_once '../../Repository/AutorRespository.php';
+require_once '../../Model/Autor.php';
 use Repository\AutorRepository;
 use Model\Autor;
 use Exception;

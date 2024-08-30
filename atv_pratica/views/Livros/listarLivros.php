@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once '../Controller/LivroController.php';
+include_once '../../Controller/LivroController.php';
 use Controller\LivroController;
 
 $controller = new LivroController();
@@ -16,8 +16,8 @@ $livros = $controller->ListarLivros();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Livros</title>
-    <link rel="stylesheet" href="../views/css/style.css">
-    <?php include 'menu.php'; ?>
+    <link rel="stylesheet" href="../css/style.css">
+    <?php include '../Head_Footer/menu.php'; ?>
     <style>
         h1{
             color: #13072e;

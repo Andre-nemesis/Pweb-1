@@ -2,8 +2,8 @@
 
 namespace Controller;
 
-require_once '../Repository/EstudanteRepository.php';
-require_once '../Model/Estudante.php';
+require_once '../../Repository/EstudanteRepository.php';
+require_once '../../Model/Estudante.php';
 use Repository\EstudanteRepository;
 use Model\Estudante;
 use Exception;

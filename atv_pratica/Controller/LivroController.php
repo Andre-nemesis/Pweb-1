@@ -1,9 +1,9 @@
 <?php
 namespace Controller;
 
-require_once '../Repository/LivroRepository.php';
-require_once '../Model/Livro.php';
-require_once '../Repository/AutorRespository.php';
+require_once '../../Repository/LivroRepository.php';
+require_once '../../Model/Livro.php';
+require_once '../../Repository/AutorRespository.php';
 
 use Repository\LivroRepository;
 use Repository\AutorRepository;

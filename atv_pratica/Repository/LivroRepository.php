@@ -1,14 +1,14 @@
 <?php 
 namespace Repository;
 
+require_once '../../Repository/AutorRespository.php';
+require_once '../../Model/Livro.php';
+require_once '../../db/DBConnectionHandler.php';
+
 use db\DBConectionHandler;
 use Model\Livro;
 use Exception;
 use Repository\AutorRepository;
-
-require_once '../Repository/AutorRespository.php';
-require_once '../Model/Livro.php';
-require_once '../db/DBConnectionHandler.php';
 
 class LivroRepository{
     /**

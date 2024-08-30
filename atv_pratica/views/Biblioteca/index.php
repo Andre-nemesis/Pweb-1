@@ -3,9 +3,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once '../Controller/LivroController.php';
-include_once '../Controller/EstudanteController.php';
-include_once '../Controller/BibliotecaController.php';
+include_once '../../Controller/LivroController.php';
+include_once '../../Controller/EstudanteController.php';
+include_once '../../Controller/BibliotecaController.php';
 use Controller\LivroController;
 use Controller\EstudanteController;
 use Controller\BibliotecaController;
@@ -34,11 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
-    <link rel="stylesheet" href="../views/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <?php include 'menu.php'; ?>
+    <?php include '../Head_Footer/menu.php'; ?>
 </head>
 <body>
     
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         nossa biblioteca tem a oferecer!</p>
                 </div>
                 <div class="centro_centro_esq">
-                    <img src="../views/imgs/livros.png" alt="">
+                    <img src="../imgs/livros.png" alt="">
                 </div>
             </div>
         </section>
@@ -89,11 +89,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="date" id="data_emprestimo" name="data_emprestimo" required>
                 <br>
                 <br>
-                <input type="submit" value="Cadastrar Emprestimo">
+                <input type="submit" value="Cadastrar Emprestimo" style="margin-left: 3rem;">
             </form>
         </section>
     </main>
 
-    <?php include 'footer.php'; ?>
+    <?php include '../Head_Footer/footer.php'; ?>
 </body>
 </html>

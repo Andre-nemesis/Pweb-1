@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once '../Controller/EstudanteController.php';
+include_once '../../Controller/EstudanteController.php';
 use Controller\EstudanteController;
 
 // Cria uma instância do controlador com a conexão
@@ -22,9 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../views/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Cadastrar Estudante</title>
-    <?php include 'menu.php'; ?>
+    <?php include '../Head_Footer/menu.php'; ?>
 </head>
 <body>
     <div class="container">
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="titulo-form-estudante">Cadastrar Novo Estudante</h1>
         </div>
         <div>
-            <img class="img-estudante" src="../views/imgs/student.svg" id="espaco">
+            <img class="img-estudante" src="../imgs/student.svg" id="espaco">
         </div>
         </section>
         
@@ -48,6 +48,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <?php include 'footer.php'; ?>
+    <?php include '../Head_Footer/footer.php'; ?>
 </body>
 </html>

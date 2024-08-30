@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include_once '../Controller/AutorController.php';
+include_once 'C:\xampp\htdocs\php\main\Pweb-1\atv_pratica\Controller\AutorController.php';
 use Controller\AutorController;
 
 // Cria uma instância do controlador com a conexão
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Autor</title>
-    <?php include 'menu.php'; ?>
+    <?php include '../Head_Footer/menu.php'; ?>
 </head>
 <body>
     <div class="container">
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="titulo-form-autor">Cadastrar Novo Autor</h1>
         </div>
         <div>
-            <img class="img-estudante" src="../views/imgs/author.svg" style="margin-left: 9rem;">
+            <img class="img-estudante" src="../imgs/author.svg" style="margin-left: 9rem;">
         </div>
         </section>
             
@@ -50,6 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <?php include 'footer.php'; ?>
+    <?php include '../Head_Footer/footer.php'; ?>
 </body>
 </html>

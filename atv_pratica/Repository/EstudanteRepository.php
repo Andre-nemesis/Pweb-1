@@ -2,8 +2,8 @@
 
 namespace Repository;
 
-require_once '../Model/Estudante.php';
-require_once '../db/DBConnectionHandler.php';
+require_once '../../Model/Estudante.php';
+require_once '../../db/DBConnectionHandler.php';
 
 use Exception;
 use db\DBConectionHandler;

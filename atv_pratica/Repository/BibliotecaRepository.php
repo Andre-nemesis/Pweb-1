@@ -1,10 +1,10 @@
 <?php 
 namespace Repository;
 
-require_once '../db/DBConnectionHandler.php';
-require_once '../Repository/EstudanteRepository.php';
-require_once '../Repository/LivroRepository.php';
-require_once '../Model/Relatorio.php';
+require_once '../../db/DBConnectionHandler.php';
+require_once '../../Repository/EstudanteRepository.php';
+require_once '../../Repository/LivroRepository.php';
+require_once '../../Model/Relatorio.php';
 
 use db\DBConectionHandler;
 use Exception;
