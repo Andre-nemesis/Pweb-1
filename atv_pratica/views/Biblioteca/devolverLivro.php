@@ -50,9 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label class="form-group" for="livro">ESCOLHA UM LIVRO:</label>
                     <select name="livro" id="livro" required>
                         <?php foreach ($livros as $livro): ?>
-                            <option value="<?php echo $livro->getTitulo(); ?>">
-                                <?php echo $livro->getTitulo(); ?>
-                            </option>
+                            <?php if ($livro->getStatus()==false):?>
+                                <option value="<?php echo $livro->getTitulo(); ?>">
+                                    <?php echo $livro->getTitulo(); ?>
+                                </option>
+                            <?php endif;?>
                         <?php endforeach; ?>
                     </select>
                 <br>

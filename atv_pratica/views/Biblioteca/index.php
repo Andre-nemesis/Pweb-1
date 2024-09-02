@@ -77,9 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label for="livro">Escolha um Livro:</label>
                     <select name="livro" id="livro" required>
                         <?php foreach ($livros as $livro): ?>
-                            <option value="<?php echo $livro->getTitulo(); ?>">
-                                <?php echo $livro->getTitulo(); ?>
-                            </option>
+                            <?php if ($livro->getStatus()==true): ?>
+                                <option value="<?php echo $livro->getTitulo(); ?>">
+                                    <?php echo $livro->getTitulo(); ?>
+                                </option>
+                            <?php endif;?>
                         <?php endforeach; ?>
                     </select>
                 <br>
@@ -89,7 +91,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="date" id="data_emprestimo" name="data_emprestimo" required>
                 <br>
                 <br>
-                <input type="submit" value="Cadastrar Emprestimo" style="margin-left: 3rem;">
+                <input type="submit" value="Cadastrar Emprestimo" style="margin-left: 3
+                rem;">
             </form>
         </section>
     </main>
