@@ -4,10 +4,12 @@ namespace Repository;
 
 require_once '../../Model/Autor.php';
 require_once '../../db/DBConnectionHandler.php';
+require_once '../../Repository/LivroRepository.php';
 
 use Exception;
 use db\DBConectionHandler;
 use Model\Autor;
+use Repository\LivroRepository;
 
 class AutorRepository{
     /**
@@ -21,7 +23,11 @@ class AutorRepository{
     private DBConectionHandler $connection_handle;
     private $conn;
 
-    public function __construct(){}
+    private LivroRepository $livro_repo;
+
+    public function __construct(){
+        $this->livro_repo = new LivroRepository();
+    }
 
     public function openConnection(){
         $this->connection_handle = new DBConectionHandler();
@@ -119,6 +125,20 @@ class AutorRepository{
             if (mysqli_ping($this->conn)){
                 $this->conn->close();
             }
+
+            $ids_livro = [];
+            $livros = $this->livro_repo->listar_livros();
+            foreach($livros as $livro){
+                if($livro->getAutor() == $id_autor){
+                    $ids_livro[] = $livro->getIdLivro();
+                }
+            }
+
+            if(!empty($ids_livro)){
+                foreach($ids_livro as $id_livro){
+                    $this->livro_repo->deletarLivro($id_livro);
+                }
+            }
         }
         
     }
@@ -162,7 +182,7 @@ class AutorRepository{
     public function editarAutor(Autor $autor){
         $nome = $autor->getNome();
         $nacionalidade = $autor->getNacionalidade();
-        $autor_id = $this->getAutorId($autor->getNome());
+        $autor_id = $autor->getIdAutor();
         $this->openConnection();
         $query = 'UPDATE autor SET autor.nome_autor = ?, autor.nacionalidade = ? WHERE autor.id = ?';
         $stmt = $this->conn->prepare($query);

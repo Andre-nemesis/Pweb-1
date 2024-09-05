@@ -64,12 +64,12 @@ DELIMITER ;
 
 -- apagar dados
 
+
 DELIMITER $$
 
 CREATE PROCEDURE dell_autor(in id_in int)
 BEGIN
     delete from autor where autor.id=id_in;
-    delete from livro where livro.fk_autor=id_in;
 END $$
 
 DELIMITER ;

@@ -24,6 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $livro = $_POST['livro'];
     $data_emprestimo = $_POST['data_emprestimo'];
     $controller_biblioteca->emprestarLivro($estudante, $livro, $data_emprestimo);
+    header('Location: index.php#emprestimo');
+    exit;
 }
 ?>
 

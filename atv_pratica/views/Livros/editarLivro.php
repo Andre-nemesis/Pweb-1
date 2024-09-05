@@ -15,6 +15,7 @@ $controller = new LivroController();
 if (isset($_GET['id'])) {
     $id = intval($_GET['id']);
     $livro = $controller->getLivroById($id);
+    $autor_livro = $autor_controller->getAutorById($livro->getAutor());
 } 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -60,10 +61,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <br>
                 <label for="autor">ESCOLHA UM AUTOR:</label>
                 <select name="autor" id="autor" required >
+                    <option value="<?php echo $autor_livro->getNome(); ?>">
+                        <?php echo $autor_livro->getNome(); ?>
+                    </option>
                     <?php foreach ($autores as $autor): ?>
-                        <option value="<?php echo $autor->getNome(); ?>">
-                            <?php echo $autor->getNome(); ?>
-                        </option>
+                        <?php if ($autor->getIdAutor() != $livro->getAutor()):?>
+                            <option value="<?php echo $autor->getNome(); ?>">
+                                <?php echo $autor->getNome(); ?>
+                            </option>
+                        <?php endif;?>
                     <?php endforeach; ?>
                 </select>
                 <br>

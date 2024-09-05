@@ -66,11 +66,11 @@ class AutorController {
         
     }
 
-    public function EditarAutor(string $nome, string $nacionalidade){
+    public function EditarAutor(string $nome, string $nacionalidade,int $id){
         try{
             // Cria um novo objeto Autor Reposiotry
-            $autor = new Autor(0,$nome,$nacionalidade);
-            $this->autorRepository->editarAutor($autor);
+            $autor = new Autor($id,$nome,$nacionalidade);
+            $this->autorRepository->editarAutor($autor,$id);
         
             // Mensagem de sucesso
             $this->mensagem = "autor editado com sucesso!";

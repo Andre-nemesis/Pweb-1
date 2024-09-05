@@ -17,7 +17,8 @@ if (isset($_GET['id'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome'];
     $nacionalidade = $_POST['nacionalidade'];
-    $controller->EditarAutor($nome, $nacionalidade);
+    $id = $_GET['id'];
+    $controller->EditarAutor($nome, $nacionalidade,$id);
     header('Location: listarAutores.php');
     exit;
 }
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </section>
 
         <div>
-            <form action="editarAutor.php" method="post">
+            <form action=<?php echo "'editarAutor.php?id=".$autor->getIdAutor()."'"?> method="post">
                 <label class="form-group" for="nome">NOME:</label>
                 <input type="text" id="nome" name="nome" value="<?php echo htmlspecialchars($autor->getNome()); ?>" required>
                 <br>
