@@ -70,7 +70,7 @@ class AutorController {
         try{
             // Cria um novo objeto Autor Reposiotry
             $autor = new Autor($id,$nome,$nacionalidade);
-            $this->autorRepository->editarAutor($autor,$id);
+            $this->autorRepository->editarAutor($autor);
         
             // Mensagem de sucesso
             $this->mensagem = "autor editado com sucesso!";
