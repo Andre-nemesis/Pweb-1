@@ -35,11 +35,19 @@ create table emprestimo(
 );
 
 -- Inserção de dados
+
 DELIMITER $$
 
 CREATE PROCEDURE insert_autor(in name_in varchar(80),in nacionalidade_in varchar(4))
 BEGIN
-    INSERT INTO autor (nome_autor,nacionalidade) values (name_in,nacionalidade_in);
+	DECLARE 
+		result_name VARCHAR(100);
+	SELECT nome_autor INTO result_name FROM autor as a WHERE a.nome_autor = name_in;
+     IF result_name IS NOT NULL THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Autor já cadastrado';
+	ELSE 
+		INSERT INTO autor (nome_autor,nacionalidade) values (name_in,nacionalidade_in);
+	END IF;
 END $$
 
 DELIMITER ;
@@ -49,7 +57,14 @@ DELIMITER $$
 
 CREATE PROCEDURE insert_livro(in titulo_in varchar(40),in ano_in int, in id_autor int)
 BEGIN
-    INSERT INTO livro (titulo,ano,fk_autor,status) values (titulo_in,ano_in,id_autor,true);
+	DECLARE 
+		result_name VARCHAR(100);
+	SELECT titulo INTO result_name FROM livro as l WHERE l.titulo = titulo_in;
+    IF result_name IS NOT NULL THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Livro já cadastrado';
+	ELSE 
+		INSERT INTO livro (titulo,ano,fk_autor,status) values (titulo_in,ano_in,id_autor,true);
+	END IF;
 END $$
 
 DELIMITER ;
@@ -58,7 +73,15 @@ DELIMITER ;
 DELIMITER $$
 CREATE PROCEDURE insert_estudante(nome_in VARCHAR(80))
 BEGIN
-	INSERT INTO estudante (nome_estudante) VALUES (nome_in);
+	DECLARE 
+		result_name VARCHAR(100);
+	SELECT nome_estudante INTO result_name FROM estudante as e WHERE e.nome_estudante = nome_in;
+    IF result_name IS NOT NULL THEN
+		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Estudante já cadastrado';
+	ELSE 
+		INSERT INTO estudante (nome_estudante) VALUES (nome_in);
+	END IF;
+	
 END $$
 DELIMITER ;
 
